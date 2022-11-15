@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # 1st party - my apps
     'users',
+    'foods',
 ]
 
 MIDDLEWARE = [
