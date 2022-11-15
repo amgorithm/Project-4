@@ -48,10 +48,7 @@ class LoginView(APIView):
         return Response({'token': token, 'message': f'Welcome back {user.username}!'})
 
 
-
-
 class Inventory(generics.ListCreateAPIView):
-
   def get_queryset(self):
       user = self.request.user
       print('user', user)
@@ -60,9 +57,8 @@ class Inventory(generics.ListCreateAPIView):
   permission_classes = (IsAuthor | permissions.IsAdminUser,)
   
 
-
-
 class InventoryDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Food.objects.all()
   serializer_class = InventorySerializer
   permission_classes = (IsAuthor | permissions.IsAdminUser,)
+

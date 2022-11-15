@@ -1,0 +1,10 @@
+.add-food {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.categories {
+  display: flex;
+}
