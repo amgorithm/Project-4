@@ -5,7 +5,10 @@ from rest_framework.exceptions import PermissionDenied
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
-from .serializers import UserSerializer
+from rest_framework import generics, permissions
+from .serializers import UserSerializer, InventorySerializer
+from .permissions import IsAuthor
+from .models import Food, Category
 User = get_user_model()
 
 
@@ -43,3 +46,23 @@ class LoginView(APIView):
 
         token = jwt.encode({'sub': user.id}, settings.SECRET_KEY, algorithm='HS256')
         return Response({'token': token, 'message': f'Welcome back {user.username}!'})
+
+
+
+
+class Inventory(generics.ListCreateAPIView):
+
+  def get_queryset(self):
+      user = self.request.user
+      print('user', user)
+      return Food.objects.filter(user_id=user.id)
+  serializer_class = InventorySerializer
+  permission_classes = (IsAuthor | permissions.IsAdminUser,)
+  
+
+
+
+class InventoryDetail(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Food.objects.all()
+  serializer_class = InventorySerializer
+  permission_classes = (IsAuthor | permissions.IsAdminUser,)

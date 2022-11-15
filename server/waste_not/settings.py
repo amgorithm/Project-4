@@ -96,8 +96,10 @@ DATABASES = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'api.authentication.JWTAuthentication',
+        'foods.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ],
+    
 }
 
 
