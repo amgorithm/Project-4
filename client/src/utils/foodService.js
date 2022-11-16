@@ -1,5 +1,62 @@
 import tokenService from "./tokenService.js";
 
+// Red
+
+export const redExpiryDate = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch("/api/v1/inventory/expiring-this-week/red/", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {}
+};
+
+// Orange
+export const orangeExpiryDate = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch("/api/v1/inventory/expiring-this-week/orange/", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {}
+};
+
+// Yellow
+export const yellowExpiryDate = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch("/api/v1/inventory/expiring-this-week/yellow/", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {}
+};
+
+// Green
+export const greenExpiryDate = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch("/api/v1/inventory/expiring-this-week/green/", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {}
+};
+
 export const getFoods = async () => {
   try {
     const token = tokenService.getToken();

@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "../HomePage";
+import HomePage from "../HomePage/Homepage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import useUser from "../../hooks/useUser";
@@ -21,7 +21,8 @@ function App() {
   return (
     <div>
       <header className="header">
-        <p>Login</p> <NavBar />
+        <h1>Waste Not</h1>
+        <NavBar />
       </header>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
