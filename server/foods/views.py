@@ -9,6 +9,7 @@ from rest_framework import generics, permissions
 from .serializers import UserSerializer, InventorySerializer
 from .permissions import IsAuthor
 from .models import Food, Category
+from django.utils import timezone
 User = get_user_model()
 
 
@@ -51,8 +52,8 @@ class LoginView(APIView):
 class Inventory(generics.ListCreateAPIView):
   def get_queryset(self):
       user = self.request.user
-      print('user', user)
-      return Food.objects.filter(user_id=user.id)
+      # Get user created foods that are yet to expire 
+      return Food.objects.filter(user_id=user.id).filter(expiry_date__gte=timezone.now())
   serializer_class = InventorySerializer
   permission_classes = (IsAuthor | permissions.IsAdminUser,)
   
