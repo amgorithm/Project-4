@@ -1,7 +1,20 @@
 import tokenService from "./tokenService.js";
 
-// Red
+// Unactioned
+export const wasteUnactioned = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch("/api/v1/inventory/waste-unactioned/", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {}
+};
 
+// Red
 export const redExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
@@ -12,7 +25,9 @@ export const redExpiryDate = async () => {
       },
     });
     return res.json();
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Orange
@@ -26,7 +41,9 @@ export const orangeExpiryDate = async () => {
       },
     });
     return res.json();
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Yellow
@@ -40,7 +57,9 @@ export const yellowExpiryDate = async () => {
       },
     });
     return res.json();
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Green

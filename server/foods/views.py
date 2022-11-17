@@ -55,7 +55,8 @@ class Inventory(generics.ListCreateAPIView):
   def get_queryset(self):
       user = self.request.user
       # Get user created foods that are yet to expire 
-      return Food.objects.filter(user_id=user.id).filter(expiry_date__gte=timezone.now())
+      return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=timezone.now()) & Q(wasted__isnull=True))
+      
   serializer_class = InventorySerializer
   permission_classes = (IsAuthor | permissions.IsAdminUser,)
   
@@ -66,11 +67,24 @@ class InventoryDetail(generics.RetrieveUpdateDestroyAPIView):
   permission_classes = (IsAuthor | permissions.IsAdminUser,)
 
 
+
+
+class WasteUnactioned(generics.ListAPIView):
+  def get_queryset(self):
+    user = self.request.user
+ 
+    return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted__isnull=True))
+
+  serializer_class = InventorySerializer
+  permission_classes = (IsAuthor | permissions.IsAdminUser,)
+
+
+
 class ExpiringRed(generics.ListAPIView):
   def get_queryset(self):
     user = self.request.user
  
-    return Food.objects.filter(user_id=user.id).filter(expiry_date=timezone.now())
+    return Food.objects.filter(user_id=user.id).filter(Q(expiry_date=timezone.now()) & Q(wasted__isnull=True))
 
   serializer_class = InventorySerializer
   permission_classes = (IsAuthor | permissions.IsAdminUser,)
@@ -84,7 +98,7 @@ class ExpiringOrange(generics.ListAPIView):
     one = day_today + timedelta(days=1)
     two = day_today + timedelta(days=2)
     three = day_today + timedelta(days=3)
-    one_to_three = Food.objects.filter(user_id=user.id).filter(Q(expiry_date=one) | Q(expiry_date=two) | Q(expiry_date=three))
+    one_to_three = Food.objects.filter(user_id=user.id).filter(Q(expiry_date=one) | Q(expiry_date=two) | Q(expiry_date=three) & Q(wasted__isnull=True))
     return one_to_three
     # green = Food.objects.filter(user_id=user.id).filter(Q(expiry_date=six) | Q(expiry_date=seven))
     # orange = Food.objects.filter(user_id=user.id).filter(Q(expiry_date=four) | Q(expiry_date=five))
@@ -101,7 +115,7 @@ class ExpiringYellow(generics.ListAPIView):
 
     four = day_today + timedelta(days=4)
     five = day_today + timedelta(days=5)
-    four_five = Food.objects.filter(user_id=user.id).filter(Q(expiry_date=four) | Q(expiry_date=five))
+    four_five = Food.objects.filter(user_id=user.id).filter(Q(expiry_date=four) | Q(expiry_date=five) & Q(wasted__isnull=True))
     return four_five 
 
   serializer_class = InventorySerializer
@@ -114,7 +128,7 @@ class ExpiringGreen(generics.ListAPIView):
 
       six = day_today + timedelta(days=6)
       seven = day_today + timedelta(days=7)
-      six_seven = Food.objects.filter(user_id=user.id).filter(Q(expiry_date=six) | Q(expiry_date=seven))
+      six_seven = Food.objects.filter(user_id=user.id).filter(Q(expiry_date=six) | Q(expiry_date=seven) & Q(wasted__isnull=True))
       return six_seven
 
   serializer_class = InventorySerializer

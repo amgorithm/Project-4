@@ -4,22 +4,31 @@ import {
   yellowExpiryDate,
   greenExpiryDate,
   redExpiryDate,
+  wasteUnactioned,
 } from "../../utils/foodService";
 
 function Homepage() {
   // const [expires, setExpires] = useState();
+  const [unactioned, setUnactioned] = useState();
   const [orange, setOrange] = useState();
   const [yellow, setYellow] = useState();
   const [green, setGreen] = useState();
   const [red, setRed] = useState();
 
   useEffect(() => {
-    //
+    getUnactioned();
     getOrangeExpiryDate();
     getYellowExpiryDate();
     getGreenExpiryDate();
     getRedExpiryDate();
   }, []);
+
+  // Unactioned
+
+  async function getUnactioned() {
+    const unactioned = await wasteUnactioned();
+    setUnactioned(unactioned);
+  }
 
   // Red
   async function getRedExpiryDate() {
@@ -45,16 +54,27 @@ function Homepage() {
     setGreen(green);
   }
 
-  console.log("orange", orange);
-  console.log("yellow", yellow);
-  console.log("red", red);
+  // console.log("orange", orange);
+  // console.log("yellow", yellow);
+  // console.log("red", red);
   return (
     <div>
+      <h4>Unactioned expired foods:</h4>
+      {unactioned ? (
+        <div>
+          {unactioned.map((food) => (
+            <div key={food.id}>{food.name}</div>
+          ))}
+        </div>
+      ) : (
+        <p>No items</p>
+      )}
+
       <h4>Today:</h4>
       {red ? (
         <div>
           {red.map((food) => (
-            <div>{food.name}</div>
+            <div key={food.id}>{food.name}</div>
           ))}
         </div>
       ) : (
@@ -65,7 +85,7 @@ function Homepage() {
       {orange ? (
         <div>
           {orange.map((food) => (
-            <div>{food.name}</div>
+            <div key={food.id}>{food.name}</div>
           ))}
         </div>
       ) : (
@@ -76,7 +96,7 @@ function Homepage() {
       {yellow ? (
         <div>
           {yellow.map((food) => (
-            <>{food.name}</>
+            <div key={food.id}>{food.name}</div>
           ))}
         </div>
       ) : (
@@ -86,7 +106,7 @@ function Homepage() {
       {green ? (
         <div>
           {green.map((food) => (
-            <div>{food.name}</div>
+            <div key={food.id}>{food.name}</div>
           ))}
         </div>
       ) : (
