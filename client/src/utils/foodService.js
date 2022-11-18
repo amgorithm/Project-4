@@ -157,3 +157,93 @@ export const deleteFood = async (food, foodID) => {
     console.log(error);
   }
 };
+
+export const overallConsumed = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(`/api/v1/inventory/overall-consumed/`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const overallWasted = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(`/api/v1/inventory/overall-wasted/`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const threeMonthConsumed = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(`/api/v1/inventory/last-three-months/consumed/`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const threeMonthWasted = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(`/api/v1/inventory/last-three-months/wasted/`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const thisYearConsumed = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(`/api/v1/inventory/this-year/consumed/`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const thisYearWasted = async () => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(`/api/v1/inventory/this-year/wasted/`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};

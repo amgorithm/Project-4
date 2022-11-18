@@ -10,8 +10,9 @@ from .serializers import UserSerializer, InventorySerializer
 from .permissions import IsAuthor
 from .models import Food, Category
 from django.utils import timezone
-from datetime import timedelta, datetime
-from django.db.models import Q, F
+from datetime import timedelta, datetime, date
+from django.db.models import Q
+from dateutil.relativedelta import relativedelta
 User = get_user_model()
 
 
@@ -54,6 +55,8 @@ class LoginView(APIView):
 class Inventory(generics.ListCreateAPIView):
   def get_queryset(self):
       user = self.request.user
+      print('time1', datetime.now().date().year)
+      print('time2', timezone.now().year)
       # Get user created foods that are yet to expire 
       return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=timezone.now()) & Q(wasted__isnull=True))
       
@@ -133,3 +136,88 @@ class ExpiringGreen(generics.ListAPIView):
 
   serializer_class = InventorySerializer
   permission_classes = (IsAuthor | permissions.IsAdminUser,)
+
+
+
+class OverallConsumed(generics.ListAPIView):
+  def get_queryset(self):
+      user = self.request.user
+
+      # Food.objects.annotate(wasted=Count('wasted'), filter=Q(expiry_date__lt=timezone.now()))
+      # userObj = Food.objects.filter(user_id=user.id)
+      # userobj = Food.objects.filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
+      # 
+      # userObj = Food.objects.filter(user_id=user.id)
+      # return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
+
+
+   
+      # return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
+      
+      return Food.objects.filter(user_id=user.id).filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
+
+  serializer_class = InventorySerializer
+  permission_classes = (IsAuthor | permissions.IsAdminUser,)
+
+
+class OverallWasted(generics.ListAPIView):
+  def get_queryset(self):
+      user = self.request.user
+
+      return Food.objects.filter(user_id=user.id).filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=True))
+
+  serializer_class = InventorySerializer
+  permission_classes = (IsAuthor | permissions.IsAdminUser,)
+
+
+
+class ThreeMonthConsumed(generics.ListAPIView):
+  def get_queryset(self):
+      user = self.request.user
+
+      prev_month = date.today().replace(day=1) - timedelta(days=1)
+      three_months_ago = date.today().replace(day=1) - relativedelta(months=3)
+      # print('3 months ago', three_months_ago)
+
+      return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=three_months_ago) & Q(expiry_date__lte=prev_month) & Q(wasted=False))
+
+  serializer_class = InventorySerializer
+  permission_classes = (IsAuthor | permissions.IsAdminUser,)
+
+
+class ThreeMonthWasted(generics.ListAPIView):
+    def get_queryset(self):
+      user = self.request.user
+      
+      prev_month = date.today().replace(day=1) - timedelta(days=1)
+      three_months_ago = date.today().replace(day=1) - relativedelta(months=3)
+      # print('3 months ago', three_months_ago)
+
+      return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=three_months_ago) & Q(expiry_date__lte=prev_month) & Q(wasted=True))
+
+    serializer_class = InventorySerializer
+    permission_classes = (IsAuthor | permissions.IsAdminUser,)
+
+
+class ThisYearConsumed(generics.ListAPIView):
+    def get_queryset(self):
+      user = self.request.user
+      
+      current_year = date.today().year
+    
+      return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__year=current_year) & Q(wasted=False))
+
+    serializer_class = InventorySerializer
+    permission_classes = (IsAuthor | permissions.IsAdminUser,)   
+
+
+class ThisYearWasted(generics.ListAPIView):
+    def get_queryset(self):
+      user = self.request.user
+      
+      current_year = date.today().year
+    
+      return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__year=current_year) & Q(wasted=True))
+
+    serializer_class = InventorySerializer
+    permission_classes = (IsAuthor | permissions.IsAdminUser,)   

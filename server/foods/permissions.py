@@ -5,6 +5,7 @@ class IsAuthor(permissions.BasePermission):
   def has_permission(self, request, view):
     if request.user.is_authenticated:
       return True
+      # Double check if this is needed:
     return False
 
 

@@ -18,8 +18,10 @@ const NavBar = () => {
       <NavLink to="" className="NavBar-link" onClick={handleLogout}>
         LOG OUT
       </NavLink>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <span className="NavBar-welcome">WELCOME, {user}</span>
+      <NavLink to="/profile">
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <span className="NavBar-welcome">WELCOME, {user}</span>
+      </NavLink>
     </div>
   ) : (
     <div>

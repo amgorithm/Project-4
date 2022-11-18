@@ -24,7 +24,6 @@ function Homepage() {
   }, []);
 
   // Unactioned
-
   async function getUnactioned() {
     const unactioned = await wasteUnactioned();
     setUnactioned(unactioned);
