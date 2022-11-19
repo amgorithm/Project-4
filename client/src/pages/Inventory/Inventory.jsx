@@ -12,16 +12,15 @@ function Inventory() {
   async function getFoodData() {
     const inventory = await getFoods();
     setInventory(inventory);
-    // getFoods()
-    //   .then((res) => {
-    //     setInventory(res);
-    //   })
-    //   .catch((err) => console.log(err));
   }
 
   console.log(inventory);
   return (
     <div>
+      <Link to={"/inventory-add"}>
+        <h4>Add items</h4>
+      </Link>
+
       {inventory ? (
         <div>
           {inventory.map((food) => (

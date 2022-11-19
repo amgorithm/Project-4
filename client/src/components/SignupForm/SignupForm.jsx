@@ -8,6 +8,7 @@ function SignupForm({ updateMessage }) {
   const { handleSignupOrLogin } = useUser();
 
   const [state, setState] = React.useState({
+    name: "",
     username: "",
     email: "",
     password: "",
@@ -39,6 +40,7 @@ function SignupForm({ updateMessage }) {
 
   const isFormInvalid = () => {
     return !(
+      state.name &&
       state.username &&
       state.email &&
       state.password === state.password_confirmation
@@ -49,6 +51,18 @@ function SignupForm({ updateMessage }) {
     <div>
       <header className="header-footer">Sign Up</header>
       <form className="form-horizontal" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <div className="col-sm-12">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="name"
+              value={state.name}
+              name="name"
+              onChange={handleChange}
+            />
+          </div>
+        </div>
         <div className="form-group">
           <div className="col-sm-12">
             <input

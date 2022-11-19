@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { getFood } from "../../utils/foodService";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { getFood, deleteFood } from "../../utils/foodService";
 
 function InventoryView() {
   const [inventoryItem, setInventoryItem] = useState();
 
   const { foodID } = useParams();
-
+  let navigate = useNavigate();
   useEffect(() => {
     async function getFoodData() {
       const inventoryItem = await getFood(foodID);
@@ -14,6 +14,13 @@ function InventoryView() {
     }
     getFoodData();
   }, [foodID]);
+
+  const removeFood = () => {
+    deleteFood(inventoryItem, foodID).then((res) => {
+      console.log("deleted");
+      navigate(`/inventory`);
+    });
+  };
 
   console.log(inventoryItem);
   return (
@@ -25,6 +32,10 @@ function InventoryView() {
       ) : (
         <p>No item</p>
       )}
+      <Link to={`/inventory-edit/${foodID}`}>
+        <button>Edit</button>
+      </Link>
+      <button onClick={removeFood}>Delete</button>
     </div>
   );
 }

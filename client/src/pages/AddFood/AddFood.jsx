@@ -44,7 +44,7 @@ function AddFood() {
           value={food.expiry_date}
           onChange={handleChange}
         />
-
+        <label>Categories</label>
         <select name="category" value={food.category} onChange={handleChange}>
           <option hidden={true}>Select</option>
           <option default={true} disabled>

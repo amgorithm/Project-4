@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   orangeExpiryDate,
   yellowExpiryDate,
@@ -62,7 +63,9 @@ function Homepage() {
       {unactioned ? (
         <div>
           {unactioned.map((food) => (
-            <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`}>
+              <div key={food.id}>{food.name}</div>
+            </Link>
           ))}
         </div>
       ) : (
@@ -73,7 +76,9 @@ function Homepage() {
       {red ? (
         <div>
           {red.map((food) => (
-            <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`}>
+              <div key={food.id}>{food.name}</div>
+            </Link>
           ))}
         </div>
       ) : (
@@ -84,7 +89,9 @@ function Homepage() {
       {orange ? (
         <div>
           {orange.map((food) => (
-            <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`}>
+              <div key={food.id}>{food.name}</div>
+            </Link>
           ))}
         </div>
       ) : (
@@ -95,7 +102,9 @@ function Homepage() {
       {yellow ? (
         <div>
           {yellow.map((food) => (
-            <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`}>
+              <div key={food.id}>{food.name}</div>
+            </Link>
           ))}
         </div>
       ) : (
@@ -105,7 +114,9 @@ function Homepage() {
       {green ? (
         <div>
           {green.map((food) => (
-            <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`}>
+              <div key={food.id}>{food.name}</div>
+            </Link>
           ))}
         </div>
       ) : (
