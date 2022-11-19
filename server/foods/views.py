@@ -13,6 +13,7 @@ from django.utils import timezone
 from datetime import timedelta, datetime, date
 from django.db.models import Q
 from dateutil.relativedelta import relativedelta
+from django.contrib.postgres.search import SearchQuery
 User = get_user_model()
 
 
@@ -143,17 +144,6 @@ class OverallConsumed(generics.ListAPIView):
   def get_queryset(self):
       user = self.request.user
 
-      # Food.objects.annotate(wasted=Count('wasted'), filter=Q(expiry_date__lt=timezone.now()))
-      # userObj = Food.objects.filter(user_id=user.id)
-      # userobj = Food.objects.filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
-      # 
-      # userObj = Food.objects.filter(user_id=user.id)
-      # return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
-
-
-   
-      # return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
-      
       return Food.objects.filter(user_id=user.id).filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
 
   serializer_class = InventorySerializer
@@ -191,7 +181,7 @@ class ThreeMonthWasted(generics.ListAPIView):
       
       prev_month = date.today().replace(day=1) - timedelta(days=1)
       three_months_ago = date.today().replace(day=1) - relativedelta(months=3)
-      # print('3 months ago', three_months_ago)
+    
 
       return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=three_months_ago) & Q(expiry_date__lte=prev_month) & Q(wasted=True))
 
@@ -218,6 +208,33 @@ class ThisYearWasted(generics.ListAPIView):
       current_year = date.today().year
     
       return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__year=current_year) & Q(wasted=True))
+
+    serializer_class = InventorySerializer
+    permission_classes = (IsAuthor | permissions.IsAdminUser,)   
+
+
+
+class InventorySearch(generics.ListAPIView):
+    def get_queryset(self):
+      user = self.request.user
+
+      # food_name = self.request.query_params.get('name') 
+      # return Food.objects.filter(user_id=user.id).filter(name__icontains=name)
+
+
+      if 'pk' in self.kwargs:
+        query = self.kwargs['pk']
+
+      search_query = SearchQuery(query)
+
+    # Shows a preview 
+      # return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=timezone.now()) & Q(wasted__isnull=True) & Q(name__icontains=query))
+
+      return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=timezone.now()) & Q(wasted__isnull=True) & Q(name__search=search_query))
+
+    
+     
+
 
     serializer_class = InventorySerializer
     permission_classes = (IsAuthor | permissions.IsAdminUser,)   

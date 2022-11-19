@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'django.contrib.postgres',
     # 1st party - my apps
     'users',
     'foods',

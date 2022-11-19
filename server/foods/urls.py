@@ -18,5 +18,6 @@ urlpatterns = [
   path('inventory/last-three-months/wasted/', views.ThreeMonthWasted.as_view(), name="last_three_month_wasted"),
   path('inventory/this-year/consumed/', views.ThisYearConsumed.as_view(), name="this_year_consumed"),
   path('inventory/this-year/wasted/', views.ThisYearWasted.as_view(), name="this_year_wasted"),
+  path('inventory-search/<str:pk>/', views.InventorySearch.as_view(), name="inventory_search")
 ]
 

@@ -247,3 +247,18 @@ export const thisYearWasted = async () => {
     console.log(error);
   }
 };
+
+export const inventorySearch = async (query) => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(`/api/v1/inventory-search/${query}/`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(Error);
+  }
+};

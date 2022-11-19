@@ -21,6 +21,7 @@ function InventoryView() {
       navigate(`/inventory`);
     });
   };
+  // TODO: Add a consumed/wasted button
 
   console.log(inventoryItem);
   return (

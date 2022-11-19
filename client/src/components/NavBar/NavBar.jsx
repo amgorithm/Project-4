@@ -8,6 +8,9 @@ const NavBar = () => {
 
   let nav = user ? (
     <div>
+      <NavLink to="/search" className="NavBar-link">
+        Search
+      </NavLink>
       <NavLink to="/" className="NavBar-link">
         Home
       </NavLink>

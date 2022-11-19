@@ -11,6 +11,7 @@ import InventoryView from "../InventoryView/InventoryView";
 import InventoryEdit from "../InventoryEdit/InventoryEdit";
 import AddFood from "../AddFood/AddFood";
 import UserAnalytics from "../UserAnalytics/UserAnalytics";
+import InventorySearch from "../InventorySearch/InventorySearch";
 
 function App() {
   const { refreshAuth } = useUser();
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/inventory" element={<Inventory />} />
         <Route exact path="/inventory-add" element={<AddFood />} />
         <Route exact path="/profile" element={<UserAnalytics />} />
+        <Route exact path="/search" element={<InventorySearch />} />
         <Route
           exact
           path="/inventory-view/:foodID"
