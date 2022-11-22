@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { addAFood } from "../../utils/foodService";
 import { useNavigate } from "react-router-dom";
 import "./AddFood.css";
+import useUser from "../../hooks/useUser";
+import { useEffect } from "react";
 
 function AddFood() {
+  const { user } = useUser();
   let navigate = useNavigate();
 
   const [food, setFood] = useState({
@@ -12,6 +15,13 @@ function AddFood() {
     expiry_date: "",
     category: 0,
   });
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFood({ ...food, [e.target.name]: e.target.value });

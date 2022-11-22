@@ -19,7 +19,6 @@ function SignupForm({ updateMessage }) {
     updateMessage("");
     setState((oldState) => ({
       ...oldState,
-      // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value,
     }));
   };
@@ -30,8 +29,7 @@ function SignupForm({ updateMessage }) {
       await userService.signup(state);
       // Let <App> know a user has signed up!
       handleSignupOrLogin();
-      // Successfully signed up - show GamePage
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       // Invalid user data (probably duplicate email)
       updateMessage(err.message);

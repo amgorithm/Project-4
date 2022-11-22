@@ -1,32 +1,46 @@
 import React, { useState, useEffect } from "react";
-import { updateFood } from "../../utils/foodService";
+import { updateFood, getFood } from "../../utils/foodService";
 import { useNavigate, useParams } from "react-router-dom";
-import { getFood } from "../../utils/foodService";
 import "./InventoryEdit.css";
+import useUser from "../../hooks/useUser";
 
 function InventoryEdit() {
+  const { user } = useUser();
   let navigate = useNavigate();
   const { foodID } = useParams();
+
   const [updateItem, setUpdateItem] = useState({
     name: "",
     quantity: 1,
     expiry_date: "",
-    category: 0,
+    category: 1,
+    wasted: false,
   });
 
   useEffect(() => {
-    if (!foodID) {
-      return;
-    }
+    // if (!user) {
+    //   navigate("/");
+    //   return;
+    // }
     async function getFoodData() {
+      // ! Check navigation/converting issue
       const inventoryItem = await getFood(foodID);
+      if (parseInt(foodID) !== inventoryItem.id) {
+        navigate("/inventory");
+      }
+
       setUpdateItem(inventoryItem);
     }
+
     getFoodData();
   }, [foodID]);
 
   const handleChange = (e) => {
-    setUpdateItem({ ...updateItem, [e.target.name]: e.target.value });
+    if (e.target["name"] === "wasted") {
+      setUpdateItem({ ...updateItem, wasted: e.target.value });
+    } else {
+      setUpdateItem({ ...updateItem, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -62,7 +76,7 @@ function InventoryEdit() {
           value={updateItem.category}
           onChange={handleChange}
         >
-          <option hidden={true}>Select</option>
+          {/* <option hidden={true}>Select</option> */}
           <option default={true} disabled>
             Category
           </option>
@@ -75,6 +89,27 @@ function InventoryEdit() {
           <option value={7}>Condiments and Salad Dressings</option>
           <option value={8}>Beverages</option>
         </select>
+        <label>Wasted:</label>
+        <input
+          type="date"
+          name="expiry_date"
+          value={updateItem.expiry_date}
+          onChange={handleChange}
+        />
+        <label>Consumed</label>
+        <input
+          type="radio"
+          name="wasted"
+          value={false}
+          onChange={handleChange}
+        />
+        <label>Wasted</label>
+        <input
+          type="radio"
+          name="wasted"
+          value={true}
+          onChange={handleChange}
+        />
         <button>Update food</button>
       </form>
     </div>

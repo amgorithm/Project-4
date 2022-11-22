@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { inventorySearch } from "../../utils/foodService";
+import { useNavigate } from "react-router-dom";
 import useDebounce from "../../hooks/useDebounce";
+import useUser from "../../hooks/useUser";
 
 function InventorySearch() {
+  const { user } = useUser();
+  let navigate = useNavigate();
   const [inventoryList, setInventoryList] = useState();
   const [query, setQuery] = useState("");
   const debounce = useDebounce(query, 500);
 
   useEffect(() => {
+    // if (!user) {
+    //   navigate("/");
+    //   return;
+    // }
     foodQuery();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounce]);

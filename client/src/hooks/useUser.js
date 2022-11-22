@@ -8,7 +8,6 @@ export default function useUser() {
 
   const handleSignupOrLogin = () => {
     const freshUser = userService.getUser();
-    console.log("user", freshUser);
     setState((state) => ({ ...state, user: freshUser }));
   };
 

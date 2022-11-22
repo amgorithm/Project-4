@@ -1,15 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getFood, deleteFood } from "../../utils/foodService";
+import useUser from "../../hooks/useUser";
 
 function InventoryView() {
-  const [inventoryItem, setInventoryItem] = useState();
-
+  const { user } = useUser();
   const { foodID } = useParams();
   let navigate = useNavigate();
+
+  const [inventoryItem, setInventoryItem] = useState();
+
   useEffect(() => {
+    // ! Refresh related to this:
+    // if (!user) {
+    //   navigate("/");
+    //   return;
+    // }
+
     async function getFoodData() {
       const inventoryItem = await getFood(foodID);
+      if (!inventoryItem.id) {
+        navigate("/inventory");
+        return;
+      }
+      // ! Check navigation route for nonexistent items
+      if (parseInt(foodID) !== inventoryItem.id) {
+        navigate("/inventory");
+        return;
+      }
+
       setInventoryItem(inventoryItem);
     }
     getFoodData();
@@ -21,6 +40,7 @@ function InventoryView() {
       navigate(`/inventory`);
     });
   };
+
   // TODO: Add a consumed/wasted button
 
   console.log(inventoryItem);

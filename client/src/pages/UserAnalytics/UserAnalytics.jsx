@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   overallConsumed,
   overallWasted,
@@ -7,8 +8,11 @@ import {
   thisYearConsumed,
   thisYearWasted,
 } from "../../utils/foodService";
+import useUser from "../../hooks/useUser";
 
 function UserAnalytics() {
+  const { user } = useUser();
+  let navigate = useNavigate();
   const [overallConsume, setOverallConsume] = useState();
   const [overallWaste, setOverallWaste] = useState();
   const [consumedLast3Months, setConsumedLast3Months] = useState();
@@ -17,6 +21,10 @@ function UserAnalytics() {
   const [wastedThisYear, setWastedThisYear] = useState();
 
   useEffect(() => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
     getOverallConsumed();
     getOverallWaste();
     getConsumedLastThreeMonths();

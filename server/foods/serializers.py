@@ -63,8 +63,7 @@ class InventorySerializer(serializers.ModelSerializer):
       return food
 
 
-    def update(self, food, validated_data):
-         
+    def update(self, food, validated_data):        
           category_data = validated_data.pop("category")
           category = food.category
           category.name = category_data.get("name", category.name)

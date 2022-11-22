@@ -66,14 +66,29 @@ class Inventory(generics.ListCreateAPIView):
   
 
 class InventoryDetail(generics.RetrieveUpdateDestroyAPIView):
-  queryset = Food.objects.all()
+  def get_queryset(self):
+      user = self.request.user
+ 
+      return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=timezone.now()) & Q(wasted__isnull=True))
+
+  serializer_class = InventorySerializer
+  permission_classes = (IsAuthor | permissions.IsAdminUser,)
+
+  
+
+
+
+class WasteUnactionedList(generics.ListAPIView):
+  def get_queryset(self):
+    user = self.request.user
+ 
+    return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted__isnull=True))
+
   serializer_class = InventorySerializer
   permission_classes = (IsAuthor | permissions.IsAdminUser,)
 
 
-
-
-class WasteUnactioned(generics.ListAPIView):
+class WasteUnactionedDetail(generics.RetrieveUpdateDestroyAPIView):
   def get_queryset(self):
     user = self.request.user
  
@@ -231,10 +246,6 @@ class InventorySearch(generics.ListAPIView):
       # return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=timezone.now()) & Q(wasted__isnull=True) & Q(name__icontains=query))
 
       return Food.objects.filter(user_id=user.id).filter(Q(expiry_date__gte=timezone.now()) & Q(wasted__isnull=True) & Q(name__search=search_query))
-
-    
-     
-
 
     serializer_class = InventorySerializer
     permission_classes = (IsAuthor | permissions.IsAdminUser,)   

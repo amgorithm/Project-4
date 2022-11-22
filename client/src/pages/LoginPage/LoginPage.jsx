@@ -27,8 +27,7 @@ function LoginPage() {
       await userService.login(formState);
       // Let <App> know a user has signed up!
       handleSignupOrLogin();
-      // Successfully signed up - show GamePage
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
       alert("Invalid Credentials!");

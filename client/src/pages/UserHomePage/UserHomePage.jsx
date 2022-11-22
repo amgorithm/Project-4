@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   orangeExpiryDate,
   yellowExpiryDate,
   greenExpiryDate,
   redExpiryDate,
-  wasteUnactioned,
+  wasteUnactionedList,
 } from "../../utils/foodService";
+import useUser from "../../hooks/useUser";
 
 function Homepage() {
+  const { user } = useUser();
+  let navigate = useNavigate();
   // const [expires, setExpires] = useState();
   const [unactioned, setUnactioned] = useState();
   const [orange, setOrange] = useState();
@@ -17,6 +20,10 @@ function Homepage() {
   const [red, setRed] = useState();
 
   useEffect(() => {
+    // if (!user) {
+    //   navigate("/");
+    //   return;
+    // }
     getUnactioned();
     getOrangeExpiryDate();
     getYellowExpiryDate();
@@ -26,7 +33,7 @@ function Homepage() {
 
   // Unactioned
   async function getUnactioned() {
-    const unactioned = await wasteUnactioned();
+    const unactioned = await wasteUnactionedList();
     setUnactioned(unactioned);
   }
 
@@ -63,8 +70,8 @@ function Homepage() {
       {unactioned ? (
         <div>
           {unactioned.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`}>
-              <div key={food.id}>{food.name}</div>
+            <Link to={`/expired-inventory-view/${food.id}/`} key={food.id}>
+              <div>{food.name}</div>
             </Link>
           ))}
         </div>
@@ -76,8 +83,8 @@ function Homepage() {
       {red ? (
         <div>
           {red.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`}>
-              <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+              <div>{food.name}</div>
             </Link>
           ))}
         </div>
@@ -89,8 +96,8 @@ function Homepage() {
       {orange ? (
         <div>
           {orange.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`}>
-              <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+              <div>{food.name}</div>
             </Link>
           ))}
         </div>
@@ -102,8 +109,8 @@ function Homepage() {
       {yellow ? (
         <div>
           {yellow.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`}>
-              <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+              <div>{food.name}</div>
             </Link>
           ))}
         </div>
@@ -114,8 +121,8 @@ function Homepage() {
       {green ? (
         <div>
           {green.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`}>
-              <div key={food.id}>{food.name}</div>
+            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+              <div>{food.name}</div>
             </Link>
           ))}
         </div>

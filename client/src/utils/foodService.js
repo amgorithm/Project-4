@@ -1,10 +1,10 @@
 import tokenService from "./tokenService.js";
 
-// Unactioned
-export const wasteUnactioned = async () => {
+// * Unactioned list
+export const wasteUnactionedList = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch("/api/v1/inventory/waste-unactioned/", {
+    let res = await fetch("/api/v1/inventory/waste-unactioned-list/", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -12,6 +12,62 @@ export const wasteUnactioned = async () => {
     });
     return res.json();
   } catch (error) {}
+};
+
+export const wasteUnactionedDetail = async (foodID) => {
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(
+      `/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    return res.json();
+  } catch (error) {}
+};
+
+export const wasteUnactionedUpdate = async (expiredItem, foodID) => {
+  console.log("Expired food updated");
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(
+      `/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+        body: expiredItem,
+      }
+    );
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const wasteUnactionedDelete = async (expiredItem, foodID) => {
+  console.log("Expired food deleted");
+  try {
+    const token = tokenService.getToken();
+    let res = await fetch(
+      `/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+        body: expiredItem,
+      }
+    );
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Red
