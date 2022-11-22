@@ -14,10 +14,10 @@ function UnactionedExpiredFoodView() {
 
   // const [expiredItem, setExpiredItem] = useState();
   const [updateWasteStatus, setUpdateWasteStatus] = useState({
-    name: "",
-    quantity: 1,
-    expiry_date: "",
-    category: 1,
+    // name: "",
+    // quantity: 1,
+    // expiry_date: "",
+    // category: { name: "" },
     wasted: false,
   });
 
@@ -39,8 +39,6 @@ function UnactionedExpiredFoodView() {
     getExpiredFood();
   }, [foodID]);
 
-  console.log(updateWasteStatus);
-
   const removeFood = () => {
     wasteUnactionedDelete(updateWasteStatus, foodID).then((res) => {
       navigate(`/inventory`);
@@ -50,8 +48,9 @@ function UnactionedExpiredFoodView() {
   const handleChange = (e) => {
     setUpdateWasteStatus({
       ...updateWasteStatus,
-      [e.target.name]: e.target.value,
+      wasted: e.target.value,
     });
+    console.log(updateWasteStatus);
   };
 
   const handleSubmit = (e) => {
@@ -73,13 +72,31 @@ function UnactionedExpiredFoodView() {
       )}
 
       <form className="edit-food" onSubmit={handleSubmit}>
-        <button name="wasted" value={false} onChange={handleChange}>
+        <label>Wasted:</label>
+
+        <label>Consumed</label>
+        <input
+          type="radio"
+          name="wasted"
+          value={false}
+          onChange={handleChange}
+        />
+        <label>Wasted</label>
+        <input
+          type="radio"
+          name="wasted"
+          value={true}
+          onChange={handleChange}
+        />
+
+        {/* <button name="wasted" value={false} onChange={handleChange}>
           Consumed
         </button>
 
         <button name="wasted" value={true} onChange={handleChange}>
           Wasted
-        </button>
+        </button> */}
+        <button>Update expiry status</button>
       </form>
 
       {/* <Link to={`/expired-inventory-edit/${foodID}`}>

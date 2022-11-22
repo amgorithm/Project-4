@@ -39,9 +39,11 @@ export const wasteUnactionedUpdate = async (expiredItem, foodID) => {
       {
         method: "PUT",
         headers: {
+          "content-type": "application/json",
           Authorization: "Bearer " + token,
         },
-        body: expiredItem,
+
+        body: JSON.stringify(expiredItem),
       }
     );
     return res.json();
@@ -169,8 +171,9 @@ export const addAFood = async (food) => {
       method: "POST",
       headers: {
         Authorization: "Bearer " + token,
+        "content-type": "application/json",
       },
-      body: food,
+      body: JSON.stringify(food),
     });
     return res.json();
   } catch (error) {
@@ -187,8 +190,9 @@ export const updateFood = async (food, foodID) => {
       method: "PUT",
       headers: {
         Authorization: "Bearer " + token,
+        "content-type": "application/json",
       },
-      body: food,
+      body: JSON.stringify(food),
     });
     return res.json();
   } catch (error) {

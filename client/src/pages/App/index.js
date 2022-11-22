@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import MainHomePage from "../MainHomePage/MainHomePage";
 import UserHomePage from "../UserHomePage/UserHomePage";
 import SignupPage from "../SignupPage/SignupPage";
@@ -14,7 +14,7 @@ import AddFood from "../AddFood/AddFood";
 import UserAnalytics from "../UserAnalytics/UserAnalytics";
 import InventorySearch from "../InventorySearch/InventorySearch";
 import UnactionedExpiredFoodView from "../UnactionedExpiredFoodView/UnactionedExpiredFoodView";
-import UnactionedExpiredFoodEdit from "../UnactionedExpiredFoodEdit/UnactionedExpiredFoodEdit";
+// import UnactionedExpiredFoodEdit from "../UnactionedExpiredFoodEdit/UnactionedExpiredFoodEdit";
 import { ProtectedRoute } from "../../utils/route";
 
 function App() {
@@ -31,6 +31,7 @@ function App() {
         <NavBar />
       </header>
       <Routes>
+        <Route exact path="*" element={<Navigate to="/" />} />
         <Route exact path="/" element={<MainHomePage />} />
         {/* <Route exact path="/dashboard" element={<UserHomePage />} /> */}
         <Route exact path="/signup" element={<SignupPage />} />

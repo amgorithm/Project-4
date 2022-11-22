@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { inventorySearch } from "../../utils/foodService";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useDebounce from "../../hooks/useDebounce";
 import useUser from "../../hooks/useUser";
 
@@ -41,7 +41,11 @@ function InventorySearch() {
       />
 
       {inventoryList ? (
-        inventoryList.map((food) => <div key={food.id}>{food.name}</div>)
+        inventoryList.map((food) => (
+          <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+            <div>{food.name}</div>
+          </Link>
+        ))
       ) : (
         <p>No items found</p>
       )}

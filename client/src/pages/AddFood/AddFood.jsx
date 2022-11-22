@@ -13,7 +13,7 @@ function AddFood() {
     name: "",
     quantity: 1,
     expiry_date: "",
-    category: 0,
+    category: { name: "" },
   });
 
   useEffect(() => {
@@ -24,7 +24,13 @@ function AddFood() {
   }, []);
 
   const handleChange = (e) => {
-    setFood({ ...food, [e.target.name]: e.target.value });
+    if (e.target.name === "category") {
+      console.log(food);
+      setFood({ ...food, category: { name: e.target.value } });
+    } else {
+      console.log(food);
+      setFood({ ...food, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -34,6 +40,17 @@ function AddFood() {
       navigate(`/inventory`);
     });
   };
+
+  const foodCategories = [
+    "Grains",
+    "Meat and Fish",
+    "Fruits and Vegetables",
+    "Dairy",
+    "Snacks",
+    "Frozen Food",
+    "Condiments and Salad Dressings",
+    "Beverages",
+  ];
 
   return (
     <div>
@@ -55,19 +72,23 @@ function AddFood() {
           onChange={handleChange}
         />
         <label>Categories</label>
-        <select name="category" value={food.category} onChange={handleChange}>
+        <select
+          name="category"
+          value={food.category.name}
+          onChange={handleChange}
+        >
           <option hidden={true}>Select</option>
           <option default={true} disabled>
             Category
           </option>
-          <option value={1}>Grains</option>
-          <option value={2}>Meat and Fish</option>
-          <option value={3}>Fruits and Vegetables</option>
-          <option value={4}>Dairy</option>
-          <option value={5}>Snacks</option>
-          <option value={6}>Frozen Food</option>
-          <option value={7}>Condiments and Salad Dressings</option>
-          <option value={8}>Beverages</option>
+          {foodCategories.map((option) => {
+            const key = option.replaceAll(" ", "-");
+            return (
+              <option value={option} key={key}>
+                {option}
+              </option>
+            );
+          })}
         </select>
         <button>Add food</button>
       </form>

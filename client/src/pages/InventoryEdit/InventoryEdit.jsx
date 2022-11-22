@@ -13,7 +13,7 @@ function InventoryEdit() {
     name: "",
     quantity: 1,
     expiry_date: "",
-    category: 1,
+    category: { name: "" },
     wasted: false,
   });
 
@@ -36,8 +36,16 @@ function InventoryEdit() {
   }, [foodID]);
 
   const handleChange = (e) => {
-    if (e.target["name"] === "wasted") {
+    if (e.target.name === "wasted") {
       setUpdateItem({ ...updateItem, wasted: e.target.value });
+    } else if (e.target.name === "category") {
+      setUpdateItem({
+        ...updateItem,
+        category: {
+          name: e.target.value,
+          id: e.target.getAttribute("data-id"),
+        },
+      });
     } else {
       setUpdateItem({ ...updateItem, [e.target.name]: e.target.value });
     }
@@ -47,9 +55,20 @@ function InventoryEdit() {
     e.preventDefault();
     updateFood(updateItem, foodID).then((res) => {
       console.log(res.data);
-      navigate(`/inventory-view/${foodID}`);
+      navigate(`/inventory`);
     });
   };
+
+  const foodCategories = [
+    { id: 1, name: "Grains" },
+    { id: 2, name: "Meat and Fish" },
+    { id: 3, name: "Fruits and Vegetables" },
+    { id: 4, name: "Dairy" },
+    { id: 5, name: "Snacks" },
+    { id: 6, name: "Frozen Food" },
+    { id: 7, name: "Condiments and Salad Dressings" },
+    { id: 8, name: "Beverages" },
+  ];
 
   return (
     <div>
@@ -70,14 +89,14 @@ function InventoryEdit() {
           value={updateItem.expiry_date}
           onChange={handleChange}
         />
-        <label>Categories</label>
+        {/* <label>Categories</label>
         <select
           name="category"
           value={updateItem.category}
           onChange={handleChange}
-        >
-          {/* <option hidden={true}>Select</option> */}
-          <option default={true} disabled>
+        > */}
+        {/* <option hidden={true}>Select</option> */}
+        {/* <option default={true} disabled>
             Category
           </option>
           <option value={1}>Grains</option>
@@ -88,8 +107,28 @@ function InventoryEdit() {
           <option value={6}>Frozen Food</option>
           <option value={7}>Condiments and Salad Dressings</option>
           <option value={8}>Beverages</option>
+        </select> */}
+        <label>Categories</label>
+        <select
+          name="category"
+          value={updateItem.category.name}
+          onChange={handleChange}
+        >
+          <option hidden={true}>Select</option>
+          <option default={true} disabled>
+            Category
+          </option>
+          {foodCategories.map((option) => {
+            const key = option.name.replaceAll(" ", "-");
+            return (
+              <option value={option.name} data-id={option.id} key={key}>
+                {option.name}
+              </option>
+            );
+          })}
         </select>
-        <label>Wasted:</label>
+
+        <label>Expiry date:</label>
         <input
           type="date"
           name="expiry_date"

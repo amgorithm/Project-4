@@ -30,11 +30,12 @@ function Inventory() {
 
       {inventory ? (
         <div>
-          {inventory.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`} key={food.name}>
-              <p>{food.name}</p>
-            </Link>
-          ))}
+          {inventory &&
+            inventory.map((food) => (
+              <Link to={`/inventory-view/${food.id}/`} key={food.name}>
+                <p>{food.name}</p>
+              </Link>
+            ))}
           <p></p>
         </div>
       ) : (

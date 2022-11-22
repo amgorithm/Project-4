@@ -19,15 +19,16 @@ function InventoryView() {
 
     async function getFoodData() {
       const inventoryItem = await getFood(foodID);
+      console.log(inventoryItem);
       if (!inventoryItem.id) {
-        navigate("/inventory");
+        navigate("/inventory", { replace: true });
         return;
       }
       // ! Check navigation route for nonexistent items
-      if (parseInt(foodID) !== inventoryItem.id) {
-        navigate("/inventory");
-        return;
-      }
+      // if (parseInt(foodID) !== inventoryItem.id) {
+      //   navigate("/inventory");
+      //   return;
+      // }
 
       setInventoryItem(inventoryItem);
     }
