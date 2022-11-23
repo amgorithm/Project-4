@@ -13,7 +13,7 @@ function signup(user) {
           return res.json();
         } else {
           // Probably a duplicate email
-          throw new Error("A user with this email already exists");
+          throw new Error("Something went wrong");
         }
       })
       // Parameter destructuring!

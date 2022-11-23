@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import userService from "../../utils/userService";
@@ -12,6 +12,8 @@ function LoginPage() {
     email: "",
     password: "",
   });
+
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     setFormState({
@@ -29,8 +31,10 @@ function LoginPage() {
       handleSignupOrLogin();
       navigate("/dashboard");
     } catch (err) {
-      // Use a modal or toast in your apps instead of alert
-      alert("Invalid Credentials!");
+      // alert("Invalid Credentials!");
+      setMessage(
+        "The email and password you entered did not match our records. Please double-check and try again."
+      );
     }
   };
 
@@ -70,6 +74,8 @@ function LoginPage() {
           </div>
         </div>
       </form>
+
+      {message.length !== 0 ? <p>{message}</p> : null}
     </div>
   );
 }
