@@ -18,13 +18,13 @@ function MainHomePage() {
   return (
     <div>
       <h2>Food facts</h2>
-      {/* {foodWasteInfo
+      {foodWasteInfo
         ? foodWasteInfo.map((fact) => (
-            <>
+            <div key={fact.id}>
               <p>{fact.information}</p>
-            </>
+            </div>
           ))
-        : null} */}
+        : null}
     </div>
   );
 }

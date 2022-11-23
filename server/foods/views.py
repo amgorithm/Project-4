@@ -56,7 +56,8 @@ class LoginView(APIView):
 
 
 class FoodWasteFactList(generics.ListAPIView):
-  queryset = FoodWasteFact.objects.all()
+  def get_queryset(self):
+    return FoodWasteFact.objects.order_by('?')[:3]
   serializer_class = FoodWasteFactSerializer
   permission_classes = (ReadOnly,)
 
