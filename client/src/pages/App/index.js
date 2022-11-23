@@ -27,7 +27,6 @@ function App() {
   return (
     <div>
       <header className="header">
-        <h1>Waste Not</h1>
         <NavBar />
       </header>
       <Routes>

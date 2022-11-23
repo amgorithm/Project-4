@@ -1,5 +1,16 @@
 import tokenService from "./tokenService.js";
 
+export const foodWasteFacts = async () => {
+  try {
+    let res = await fetch("/api/v1/food-waste-facts/", {
+      method: "GET",
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // * Unactioned list
 export const wasteUnactionedList = async () => {
   try {
@@ -11,7 +22,9 @@ export const wasteUnactionedList = async () => {
       },
     });
     return res.json();
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const wasteUnactionedDetail = async (foodID) => {
@@ -27,7 +40,9 @@ export const wasteUnactionedDetail = async (foodID) => {
       }
     );
     return res.json();
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const wasteUnactionedUpdate = async (expiredItem, foodID) => {

@@ -21,3 +21,13 @@ class Food(models.Model):
 
   def __str__(self):
     return f"{self.name}"
+
+
+
+class FoodWasteFact(models.Model):
+  information = models.TextField(max_length=200)
+  source_name = models.CharField(max_length=80)
+  publication_date = models.DateField()
+
+  def __str__(self):
+    return f"{self.source_name}"

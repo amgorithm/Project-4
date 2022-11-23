@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useUser from "../../hooks/useUser";
 import "./NavBar.css";
 
@@ -38,7 +38,15 @@ const NavBar = () => {
     </div>
   );
 
-  return <div className="NavBar">{nav}</div>;
+  return (
+    <div className="NavBar">
+      <Link to="/">
+        <h1>Waste Not</h1>
+      </Link>
+
+      {nav}
+    </div>
+  );
 };
 
 export default NavBar;

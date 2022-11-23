@@ -1,6 +1,5 @@
 from rest_framework import permissions
 
-
 class IsAuthor(permissions.BasePermission):
   def has_permission(self, request, view):
     if request.user.is_authenticated:
@@ -17,4 +16,6 @@ class IsAuthor(permissions.BasePermission):
     
 
 
-
+class ReadOnly(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.method in permissions.SAFE_METHODS

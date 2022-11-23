@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 import django.contrib.auth.password_validation as validations
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
-from .models import Food, Category
+from .models import Food, Category, FoodWasteFact
 User = get_user_model()
 
 
@@ -83,3 +83,9 @@ class InventorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Food
         fields = ("id", "name", "category", "quantity", "expiry_date", "wasted", "user", "created_at", "updated_at")
+
+
+class FoodWasteFactSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = FoodWasteFact
+    fields = ("id", "information", "source_name", "publication_date")

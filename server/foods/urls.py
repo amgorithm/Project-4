@@ -5,6 +5,9 @@ from . import views
 urlpatterns = [
   path('signup/', views.RegisterView.as_view()),
   path('login/', views.LoginView.as_view()),
+  path('food-waste-facts/', views.FoodWasteFactList.as_view(), name="food-waste-facts"),
+  path('food-waste-facts/add/', views.FoodWasteFactAdd.as_view(), name="food-waste-facts-add"),
+  path('food-waste-facts/<int:pk>/', views.FoodWasteFactDetail.as_view(), name="food-waste-facts"),
   path("inventory/", views.Inventory.as_view(), name="inventory"),
   path("inventory-detail/<int:pk>/", views.InventoryDetail.as_view(), name="inventory_detail"),
   path("inventory/waste-unactioned-list/", views.WasteUnactionedList.as_view(), name="waste_unactioned_list"),

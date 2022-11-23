@@ -6,9 +6,9 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
 from rest_framework import generics, permissions
-from .serializers import UserSerializer, InventorySerializer
-from .permissions import IsAuthor
-from .models import Food, Category
+from .serializers import UserSerializer, InventorySerializer, FoodWasteFactSerializer
+from .permissions import IsAuthor, ReadOnly
+from .models import Food, Category, FoodWasteFact
 from django.utils import timezone
 from datetime import timedelta, datetime, date
 from django.db.models import Q
@@ -53,6 +53,23 @@ class LoginView(APIView):
         token = jwt.encode(
             {'sub': user.id}, settings.SECRET_KEY, algorithm='HS256')
         return Response({'token': token, 'message': f'Welcome back {user.username}!'})
+
+
+class FoodWasteFactList(generics.ListAPIView):
+  queryset = FoodWasteFact.objects.all()
+  serializer_class = FoodWasteFactSerializer
+  permission_classes = (ReadOnly,)
+
+  
+class FoodWasteFactAdd(generics.CreateAPIView):
+  queryset = FoodWasteFact.objects.all()
+  serializer_class = FoodWasteFactSerializer
+  permission_classes = (permissions.IsAdminUser,)
+
+class FoodWasteFactDetail(generics.RetrieveUpdateDestroyAPIView):
+  queryset = FoodWasteFact.objects.all()
+  serializer_class = FoodWasteFactSerializer
+  permission_classes = (permissions.IsAdminUser,)
 
 
 class Inventory(generics.ListCreateAPIView):
