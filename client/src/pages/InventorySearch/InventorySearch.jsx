@@ -12,10 +12,6 @@ function InventorySearch() {
   const debounce = useDebounce(query, 500);
 
   useEffect(() => {
-    // if (!user) {
-    //   navigate("/");
-    //   return;
-    // }
     foodQuery();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounce]);
@@ -23,7 +19,6 @@ function InventorySearch() {
   async function foodQuery() {
     if (query !== "") {
       const food = await inventorySearch(query);
-      console.log(food);
       setInventoryList(food);
     } else {
       setInventoryList("");

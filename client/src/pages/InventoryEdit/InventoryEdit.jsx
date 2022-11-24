@@ -18,22 +18,17 @@ function InventoryEdit() {
   });
 
   useEffect(() => {
-    // if (!user) {
-    //   navigate("/");
-    //   return;
-    // }
-    async function getFoodData() {
-      // ! Check navigation/converting issue
-      const inventoryItem = await getFood(foodID);
-      if (parseInt(foodID) !== inventoryItem.id) {
-        navigate("/inventory");
-      }
-
-      setUpdateItem(inventoryItem);
-    }
-
     getFoodData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [foodID]);
+
+  async function getFoodData() {
+    const inventoryItem = await getFood(foodID);
+    if (!inventoryItem.id) {
+      navigate("/inventory");
+    }
+    setUpdateItem(inventoryItem);
+  }
 
   const handleChange = (e) => {
     if (e.target.name === "wasted") {

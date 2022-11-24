@@ -9,10 +9,6 @@ function Inventory() {
   const [inventory, setInventory] = useState();
 
   useEffect(() => {
-    // if (!user) {
-    //   navigate("/");
-    //   return;
-    // }
     getFoodData();
   }, []);
 

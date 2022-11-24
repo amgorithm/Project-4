@@ -21,10 +21,6 @@ function UserAnalytics() {
   const [wastedThisYear, setWastedThisYear] = useState();
 
   useEffect(() => {
-    if (!user) {
-      navigate("/login");
-      return;
-    }
     getOverallConsumed();
     getOverallWaste();
     getConsumedLastThreeMonths();

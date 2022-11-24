@@ -12,32 +12,23 @@ function UnactionedExpiredFoodView() {
   const { foodID } = useParams();
   let navigate = useNavigate();
 
-  // const [expiredItem, setExpiredItem] = useState();
   const [updateWasteStatus, setUpdateWasteStatus] = useState({
-    // name: "",
-    // quantity: 1,
-    // expiry_date: "",
-    // category: { name: "" },
     wasted: false,
   });
 
   useEffect(() => {
-    // if (!user) {
-    //   navigate("/");
-    //   return;
-    // }
-    async function getExpiredFood() {
-      const unactioned = await wasteUnactionedDetail(foodID);
-      if (!unactioned.id) {
-        navigate("/inventory");
-        return;
-      }
-
-      setUpdateWasteStatus(unactioned);
-    }
-
     getExpiredFood();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [foodID]);
+
+  async function getExpiredFood() {
+    const unactioned = await wasteUnactionedDetail(foodID);
+    if (!unactioned.id) {
+      navigate("/inventory");
+      return;
+    }
+    setUpdateWasteStatus(unactioned);
+  }
 
   const removeFood = () => {
     wasteUnactionedDelete(updateWasteStatus, foodID).then((res) => {
@@ -50,7 +41,7 @@ function UnactionedExpiredFoodView() {
       ...updateWasteStatus,
       wasted: e.target.value,
     });
-    console.log(updateWasteStatus);
+    console.log("clicked to update", updateWasteStatus);
   };
 
   const handleSubmit = (e) => {

@@ -12,7 +12,7 @@ import useUser from "../../hooks/useUser";
 function Homepage() {
   const { user } = useUser();
   let navigate = useNavigate();
-  // const [expires, setExpires] = useState();
+
   const [unactioned, setUnactioned] = useState();
   const [orange, setOrange] = useState();
   const [yellow, setYellow] = useState();
@@ -20,10 +20,6 @@ function Homepage() {
   const [red, setRed] = useState();
 
   useEffect(() => {
-    // if (!user) {
-    //   navigate("/");
-    //   return;
-    // }
     getUnactioned();
     getOrangeExpiryDate();
     getYellowExpiryDate();
@@ -61,9 +57,6 @@ function Homepage() {
     setGreen(green);
   }
 
-  // console.log("orange", orange);
-  // console.log("yellow", yellow);
-  // console.log("red", red);
   return (
     <div>
       <h4>Unactioned expired foods:</h4>

@@ -11,29 +11,17 @@ function InventoryView() {
   const [inventoryItem, setInventoryItem] = useState();
 
   useEffect(() => {
-    // ! Refresh related to this:
-    // if (!user) {
-    //   navigate("/");
-    //   return;
-    // }
-
-    async function getFoodData() {
-      const inventoryItem = await getFood(foodID);
-      console.log(inventoryItem);
-      if (!inventoryItem.id) {
-        navigate("/inventory", { replace: true });
-        return;
-      }
-      // ! Check navigation route for nonexistent items
-      // if (parseInt(foodID) !== inventoryItem.id) {
-      //   navigate("/inventory");
-      //   return;
-      // }
-
-      setInventoryItem(inventoryItem);
-    }
     getFoodData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [foodID]);
+
+  async function getFoodData() {
+    const item = await getFood(foodID);
+    if (!item.id) {
+      navigate("/inventory");
+    }
+    setInventoryItem(item);
+  }
 
   const removeFood = () => {
     deleteFood(inventoryItem, foodID).then((res) => {
@@ -41,8 +29,6 @@ function InventoryView() {
       navigate(`/inventory`);
     });
   };
-
-  // TODO: Add a consumed/wasted button
 
   console.log(inventoryItem);
   return (

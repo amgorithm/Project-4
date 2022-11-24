@@ -3,7 +3,6 @@ import { addAFood } from "../../utils/foodService";
 import { useNavigate } from "react-router-dom";
 import "./AddFood.css";
 import useUser from "../../hooks/useUser";
-import { useEffect } from "react";
 
 function AddFood() {
   const { user } = useUser();
@@ -15,13 +14,6 @@ function AddFood() {
     expiry_date: "",
     category: { name: "" },
   });
-
-  useEffect(() => {
-    if (!user) {
-      navigate("/login");
-      return;
-    }
-  }, []);
 
   const handleChange = (e) => {
     if (e.target.name === "category") {

@@ -19,16 +19,18 @@ function UnactionedExpiredFoodEdit() {
   });
 
   useEffect(() => {
-    async function getExpiredFood() {
-      const unactioned = await wasteUnactionedDetail(foodID);
-
-      if (parseInt(foodID) !== unactioned.id) {
-        navigate("/dashboard");
-      }
-      setUpdateWasteStatus(unactioned);
-    }
     getExpiredFood();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [foodID]);
+
+  async function getExpiredFood() {
+    const unactioned = await wasteUnactionedDetail(foodID);
+
+    if (!unactioned.id) {
+      navigate("/dashboard");
+    }
+    setUpdateWasteStatus(unactioned);
+  }
 
   const handleChange = (e) => {
     setUpdateWasteStatus({
