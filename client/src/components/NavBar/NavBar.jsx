@@ -10,7 +10,7 @@ const NavBar = () => {
     <div className="navbar-logged-in">
       <NavLink
         to="/search"
-        className="search"
+        className="navbar-search"
         style={{ textDecoration: "none" }}
       >
         🔎

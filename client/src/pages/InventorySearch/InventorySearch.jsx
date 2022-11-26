@@ -3,6 +3,7 @@ import { inventorySearch } from "../../utils/foodService";
 import { Link, useNavigate } from "react-router-dom";
 import useDebounce from "../../hooks/useDebounce";
 import useUser from "../../hooks/useUser";
+import "./InventorySearch.css";
 
 function InventorySearch() {
   const { user } = useUser();
@@ -24,25 +25,32 @@ function InventorySearch() {
       setInventoryList("");
     }
   }
-  console.log(inventoryList);
+  // console.log(inventoryList);
   return (
-    <div>
-      <h4>Search</h4>
-      <input
-        type="search"
-        placeholder="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+    <div className="search">
+      <div className="search-title">
+        <h2>Search inventory</h2>
+      </div>
+
+      <div className="search-bar">
+        <input
+          type="search"
+          placeholder="What food are you looking for?"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
 
       {inventoryList ? (
         inventoryList.map((food) => (
-          <Link to={`/inventory-view/${food.id}/`} key={food.id}>
-            <div>{food.name}</div>
-          </Link>
+          <div className="results" key={food.id}>
+            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+              <h3>{food.name}</h3>
+            </Link>
+          </div>
         ))
       ) : (
-        <p>No items found</p>
+        <p>No results</p>
       )}
     </div>
   );
