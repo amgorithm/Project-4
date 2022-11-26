@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f0ede2;
+  font-family: "Lato", sans-serif;
+}
+
+.footer h2 {
+  font-size: 17pt;
+}

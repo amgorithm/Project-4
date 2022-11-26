@@ -43,7 +43,7 @@ function InventoryView() {
       <Link to={`/inventory-edit/${foodID}`}>
         <button>Edit</button>
       </Link>
-      <button onClick={removeFood}>Delete</button>
+      <button onClick={removeFood}>Remove from inventory</button>
     </div>
   );
 }

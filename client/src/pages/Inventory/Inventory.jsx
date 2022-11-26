@@ -17,7 +17,7 @@ function Inventory() {
     setInventory(inventory);
   }
 
-  console.log(inventory);
+  console.log(user);
   return (
     <div>
       <Link to={"/inventory-add"}>

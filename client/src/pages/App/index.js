@@ -15,6 +15,8 @@ import UserAnalytics from "../UserAnalytics/UserAnalytics";
 import InventorySearch from "../InventorySearch/InventorySearch";
 import UnactionedExpiredFoodView from "../UnactionedExpiredFoodView/UnactionedExpiredFoodView";
 // import UnactionedExpiredFoodEdit from "../UnactionedExpiredFoodEdit/UnactionedExpiredFoodEdit";
+import About from "../About/About";
+import Footer from "../../components/Footer/Footer";
 import { ProtectedRoute } from "../../utils/route";
 
 function App() {
@@ -26,30 +28,31 @@ function App() {
   }, []);
   return (
     <div>
-      <header className="header">
+      <header>
         <NavBar />
       </header>
-      <Routes>
-        <Route exact path="*" element={<Navigate to="/" />} />
-        <Route exact path="/" element={<MainHomePage />} />
-        {/* <Route exact path="/dashboard" element={<UserHomePage />} /> */}
-        <Route exact path="/signup" element={<SignupPage />} />
-        <Route exact path="/login" element={<LoginPage />} />
-        {/* <Route exact path="/inventory" element={<Inventory />} /> */}
-        {/* <Route exact path="/inventory-add" element={<AddFood />} /> */}
-        {/* <Route exact path="/profile" element={<UserAnalytics />} />
+      <main className="main">
+        <Routes>
+          <Route exact path="*" element={<Navigate to="/" />} />
+          <Route exact path="/" element={<MainHomePage />} />
+          {/* <Route exact path="/dashboard" element={<UserHomePage />} /> */}
+          <Route exact path="/signup" element={<SignupPage />} />
+          <Route exact path="/login" element={<LoginPage />} />
+          {/* <Route exact path="/inventory" element={<Inventory />} /> */}
+          {/* <Route exact path="/inventory-add" element={<AddFood />} /> */}
+          {/* <Route exact path="/profile" element={<UserAnalytics />} />
         <Route exact path="/search" element={<InventorySearch />} /> */}
-        {/* <Route
+          {/* <Route
           exact
           path="/inventory-view/:foodID"
           element={<InventoryView />}
         /> */}
-        {/* <Route
+          {/* <Route
           exact
           path="/inventory-edit/:foodID"
           element={<InventoryEdit />}
         /> */}
-        {/* <Route
+          {/* <Route
           exact
           path="/expired-inventory-view/:foodID"
           element={<UnactionedExpiredFoodView />}
@@ -60,67 +63,67 @@ function App() {
           element={<UnactionedExpiredFoodEdit />}
         /> */}
 
-        <Route
-          exact
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              {" "}
-              <UserHomePage />{" "}
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            exact
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                {" "}
+                <UserHomePage />{" "}
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          exact
-          path="/inventory"
-          element={
-            <ProtectedRoute>
-              <Inventory />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            exact
+            path="/inventory"
+            element={
+              <ProtectedRoute>
+                <Inventory />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          exact
-          path="/inventory-add"
-          element={
-            <ProtectedRoute>
-              <AddFood />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            exact
+            path="/inventory-add"
+            element={
+              <ProtectedRoute>
+                <AddFood />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          exact
-          path="/inventory-view/:foodID"
-          element={
-            <ProtectedRoute>
-              <InventoryView />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            exact
+            path="/inventory-view/:foodID"
+            element={
+              <ProtectedRoute>
+                <InventoryView />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          exact
-          path="/inventory-edit/:foodID"
-          element={
-            <ProtectedRoute>
-              <InventoryEdit />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          exact
-          path="/expired-inventory-view/:foodID"
-          element={
-            <ProtectedRoute>
-              <UnactionedExpiredFoodView />
-            </ProtectedRoute>
-          }
-        />
-        {/* View and edit for expired food combined */}
-        {/* <Route
+          <Route
+            exact
+            path="/inventory-edit/:foodID"
+            element={
+              <ProtectedRoute>
+                <InventoryEdit />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            exact
+            path="/expired-inventory-view/:foodID"
+            element={
+              <ProtectedRoute>
+                <UnactionedExpiredFoodView />
+              </ProtectedRoute>
+            }
+          />
+          {/* View and edit for expired food combined */}
+          {/* <Route
           exact
           path="/expired-inventory-edit/:foodID"
           element={
@@ -129,25 +132,29 @@ function App() {
             </ProtectedRoute>
           }
         /> */}
-        <Route
-          exact
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <UserAnalytics />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          exact
-          path="/search"
-          element={
-            <ProtectedRoute>
-              <InventorySearch />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+          <Route
+            exact
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <UserAnalytics />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            exact
+            path="/search"
+            element={
+              <ProtectedRoute>
+                <InventorySearch />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route exact path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </main>
     </div>
   );
 }

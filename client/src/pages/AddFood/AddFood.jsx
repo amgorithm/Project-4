@@ -82,7 +82,7 @@ function AddFood() {
             );
           })}
         </select>
-        <button>Add food</button>
+        <button>Save</button>
       </form>
     </div>
   );

@@ -4,35 +4,48 @@ import useUser from "../../hooks/useUser";
 import "./NavBar.css";
 
 const NavBar = () => {
-  const { handleLogout, user } = useUser();
+  const { user } = useUser();
 
   let nav = user ? (
-    <div>
-      <NavLink to="/search" className="NavBar-link">
+    <div className="navbar-logged-in">
+      {/* <NavLink to="/search" className="NavBar-link">
         Search
-      </NavLink>
-      <NavLink to="/dashboard" className="NavBar-link">
+      </NavLink> */}
+
+      {/* <NavLink to="/inventory" className="NavBar-link">
+        Inventory
+      </NavLink> */}
+
+      <NavLink
+        to="/dashboard"
+        className="dashboard"
+        style={{ textDecoration: "none" }}
+      >
         Dashboard
       </NavLink>
-      <NavLink to="/inventory" className="NavBar-link">
-        Inventory
-      </NavLink>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <NavLink to="" className="NavBar-link" onClick={handleLogout}>
-        LOG OUT
-      </NavLink>
       <NavLink to="/profile">
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <span className="NavBar-welcome">WELCOME, {user}</span>
+        {/* <span className="NavBar-welcome">{user}</span> */}
+        <img
+          src={require("../../images/user.png")}
+          alt="profile avatar"
+          className="profile-avatar"
+        />
       </NavLink>
     </div>
   ) : (
-    <div>
-      <NavLink to="/login" className="NavBar-link">
+    <div className="navbar-anon-user">
+      <NavLink
+        to="/login"
+        className="navbar-login-link"
+        style={{ textDecoration: "none" }}
+      >
         LOG IN
       </NavLink>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <NavLink to="/signup" className="NavBar-link">
+      <NavLink
+        to="/signup"
+        className="navbar-signup-link"
+        style={{ textDecoration: "none" }}
+      >
         SIGN UP
       </NavLink>
     </div>
@@ -40,10 +53,11 @@ const NavBar = () => {
 
   return (
     <div className="NavBar">
-      <Link to="/">
-        <h1>Waste Not</h1>
-      </Link>
-
+      <div className="waste-not-title">
+        <Link to="/" style={{ textDecoration: "none", color: " #2d3b1d" }}>
+          <h1>Waste Not</h1>
+        </Link>
+      </div>
       {nav}
     </div>
   );

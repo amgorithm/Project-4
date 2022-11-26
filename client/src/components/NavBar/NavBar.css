@@ -1,4 +1,4 @@
-.NavBar {
+/* .NavBar {
   display: flex;
   justify-content: center;
   margin: 0 0 20px;
@@ -10,4 +10,55 @@
 
 .NavBar-welcome {
   color: grey;
+} */
+
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fcfaf8;
+  /* border: 1px solid green; */
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 60px;
+}
+
+.waste-not-title {
+  font-family: "Raleway", sans-serif;
+  color: #2d3b1d;
+  font-size: 14pt;
+}
+
+/* Anon user */
+.navbar-anon-user {
+  font-family: "Lato", sans-serif;
+}
+
+.navbar-login-link {
+  padding-right: 10px;
+  color: #43572c;
+}
+
+.navbar-signup-link {
+  padding-left: 5px;
+  border-radius: 4px;
+  background-color: #509498;
+  color: #fcfaf8;
+  padding: 3px 3px 3px 3px;
+}
+
+/* Signed in User */
+.navbar-logged-in {
+  display: flex;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+}
+
+.profile-avatar {
+  height: 35px;
+}
+
+.dashboard {
+  padding-right: 5px;
+  color: #43572c;
 }
