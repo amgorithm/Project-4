@@ -284,9 +284,12 @@ function Inventory() {
         <p>No items</p>
       )}
 
-      <div className="inventory-add">
-        <Link to={"/inventory-add"}>
-          <h3>Add</h3>
+      <div className="inventory-add-container">
+        <Link
+          to={"/inventory-add"}
+          style={{ textDecoration: "none", color: "#509498" }}
+        >
+          +
         </Link>
       </div>
     </div>

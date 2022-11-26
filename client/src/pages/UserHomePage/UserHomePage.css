@@ -27,7 +27,7 @@
 }
 
 .inventory-item-container {
-  border: 1px solid darkgray;
+  border: 1px solid #e0e0e0;
   border-radius: 20px;
   width: 250px;
   display: flex;
@@ -74,4 +74,13 @@
 .food-name h3 {
   padding-left: 10px;
   font-size: 20px;
+}
+
+.inventory-add-container {
+  margin-top: 15px;
+  margin-bottom: 100px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+  border-radius: 8px;
 }
