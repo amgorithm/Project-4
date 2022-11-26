@@ -1,5 +1,7 @@
-.main {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+html {
+  width: 100%;
+}
+
+.waste-not-app {
+  box-sizing: border-box;
 }

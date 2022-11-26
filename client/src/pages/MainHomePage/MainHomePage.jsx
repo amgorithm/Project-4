@@ -94,7 +94,7 @@ function MainHomePage() {
                 alt="family-shopping"
                 className="user-analytics-graph"
               />
-              <p>Get tailored food consumption and waste stats</p>
+              <p>Get tailored food consumption and waste analytics</p>
             </div>
 
             <div className="saving-money">

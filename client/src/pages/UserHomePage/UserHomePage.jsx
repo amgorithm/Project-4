@@ -8,6 +8,7 @@ import {
   wasteUnactionedList,
 } from "../../utils/foodService";
 import useUser from "../../hooks/useUser";
+import "./UserHomePage.css";
 
 function Homepage() {
   const { user } = useUser();
@@ -59,6 +60,7 @@ function Homepage() {
 
   return (
     <div>
+      <Link to={"/inventory"}>Inventory</Link>
       <h4>Unactioned expired foods:</h4>
       {unactioned ? (
         <div>

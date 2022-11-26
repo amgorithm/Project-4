@@ -8,14 +8,6 @@ const NavBar = () => {
 
   let nav = user ? (
     <div className="navbar-logged-in">
-      {/* <NavLink to="/search" className="NavBar-link">
-        Search
-      </NavLink> */}
-
-      {/* <NavLink to="/inventory" className="NavBar-link">
-        Inventory
-      </NavLink> */}
-
       <NavLink
         to="/dashboard"
         className="dashboard"

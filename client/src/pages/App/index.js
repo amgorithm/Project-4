@@ -27,11 +27,11 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div>
+    <div className="waste-not-app">
       <header>
         <NavBar />
       </header>
-      <main className="main">
+      <main>
         <Routes>
           <Route exact path="*" element={<Navigate to="/" />} />
           <Route exact path="/" element={<MainHomePage />} />

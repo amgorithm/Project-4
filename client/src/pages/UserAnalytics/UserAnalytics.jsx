@@ -72,7 +72,7 @@ function UserAnalytics() {
       {overallConsume ? (
         <div>
           <p>
-            Consumed: <span>{overallConsume.length}</span>
+            Saved: <span>{overallConsume.length}</span>
           </p>
         </div>
       ) : null}
@@ -90,7 +90,7 @@ function UserAnalytics() {
       {consumedLast3Months ? (
         <div>
           <p>
-            Consumed: <span>{consumedLast3Months.length}</span>
+            Saved: <span>{consumedLast3Months.length}</span>
           </p>
         </div>
       ) : null}
@@ -107,7 +107,7 @@ function UserAnalytics() {
       {consumedThisYear ? (
         <div>
           <p>
-            Consumed: <span>{consumedThisYear.length}</span>
+            Saved: <span>{consumedThisYear.length}</span>
           </p>
         </div>
       ) : null}
