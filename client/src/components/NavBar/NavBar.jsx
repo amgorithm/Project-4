@@ -9,6 +9,13 @@ const NavBar = () => {
   let nav = user ? (
     <div className="navbar-logged-in">
       <NavLink
+        to="/search"
+        className="search"
+        style={{ textDecoration: "none" }}
+      >
+        🔎
+      </NavLink>
+      <NavLink
         to="/dashboard"
         className="dashboard"
         style={{ textDecoration: "none" }}
