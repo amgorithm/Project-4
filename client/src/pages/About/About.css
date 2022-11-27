@@ -1,0 +1,33 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  font-family: "Lato", sans-serif;
+}
+
+.about-title h2 {
+  color: #43572c;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.about-info {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.about-info p {
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.about-img {
+  height: 300px;
+}
