@@ -22,3 +22,8 @@
   text-align: center;
   margin-top: 20px;
 }
+
+.results h3 {
+  padding-left: 10px;
+  font-size: 20px;
+}

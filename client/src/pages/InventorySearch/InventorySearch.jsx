@@ -41,17 +41,19 @@ function InventorySearch() {
         />
       </div>
 
-      {inventoryList ? (
-        inventoryList.map((food) => (
-          <div className="results" key={food.id}>
-            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
-              <h3>{food.name}</h3>
-            </Link>
-          </div>
-        ))
-      ) : (
-        <p>No results</p>
-      )}
+      {inventoryList
+        ? inventoryList.map((food) => (
+            <div className="results" key={food.id}>
+              <Link
+                to={`/inventory-view/${food.id}/`}
+                style={{ textDecoration: "none", color: "#509498" }}
+                key={food.id}
+              >
+                <h3 className="food-name">{food.name}</h3>
+              </Link>
+            </div>
+          ))
+        : null}
     </div>
   );
 }
