@@ -33,49 +33,54 @@ function LoginPage() {
     } catch (err) {
       // alert("Invalid Credentials!");
       setMessage(
-        "The email and password you entered did not match our records. Please double-check and try again."
+        "Hmm. Your email and password do not match our records. Check again, please."
       );
     }
   };
 
   return (
-    <div className="LoginPage">
-      <header className="header-footer">Log In</header>
-      <form className="form-horizontal" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <div className="col-sm-12">
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Email"
-              value={formState.email}
-              name="email"
-              onChange={handleChange}
-            />
-          </div>
+    <div className="login-page">
+      <div className="login-title">
+        <h2>Log in</h2>
+      </div>
+
+      <form className="login-form-container" onSubmit={handleSubmit}>
+        <div className="email-section">
+          <input
+            type="email"
+            placeholder="Email*"
+            value={formState.email}
+            name="email"
+            onChange={handleChange}
+            className="login-input"
+          />
         </div>
-        <div className="form-group">
-          <div className="col-sm-12">
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Password"
-              value={formState.password}
-              name="password"
-              onChange={handleChange}
-            />
-          </div>
+
+        <div className="pw-section">
+          <input
+            type="password"
+            placeholder="Password*"
+            value={formState.password}
+            name="password"
+            onChange={handleChange}
+            className="login-input"
+          />
         </div>
-        <div className="form-group">
-          <div className="col-sm-12 text-center">
-            <button className="btn btn-default">Log In</button>
-            &nbsp;&nbsp;&nbsp;
-            <Link to="/">Cancel</Link>
+
+        <div className="login-action">
+          <div className="login-btn-container">
+            <button className="login-btn">Log In</button>
+          </div>
+          <div className="cancel-link">
+            <Link to="/" style={{ textDecoration: "none", color: "#bebebe" }}>
+              Cancel
+            </Link>
           </div>
         </div>
       </form>
-
-      {message.length !== 0 ? <p>{message}</p> : null}
+      <div className="err login-err">
+        {message.length !== 0 ? <p>{message}</p> : null}
+      </div>
     </div>
   );
 }
