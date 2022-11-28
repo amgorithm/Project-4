@@ -9,6 +9,7 @@ import {
   thisYearWasted,
 } from "../../utils/foodService";
 import useUser from "../../hooks/useUser";
+import "./UserAnalytics.css";
 
 function UserAnalytics() {
   const { user, handleLogout } = useUser();
@@ -39,7 +40,7 @@ function UserAnalytics() {
     setOverallWaste(wasted);
   }
 
-  console.log(wastedThisYear);
+  console.log(overallConsume);
 
   async function getConsumedLastThreeMonths() {
     const consumed = await threeMonthConsumed();
@@ -62,62 +63,127 @@ function UserAnalytics() {
   }
 
   return (
-    <div>
-      <Link to="/" onClick={handleLogout}>
+    <div className="analytics">
+      {/* <Link to="/" onClick={handleLogout}>
         Logout
-      </Link>
-      <h3>Food waste analytics</h3>
+      </Link> */}
+      <div className="analytics-title">
+        <div className="user">
+          {overallConsume ? (
+            <>
+              <div>
+                <h2>Hey, {overallConsume[0].user.username}!</h2>
+              </div>
 
-      <h4>Overall:</h4>
-      {overallConsume ? (
-        <div>
-          <p>
-            Saved: <span>{overallConsume.length}</span>
-          </p>
+              <div>
+                <img
+                  src={require("../../images/wave.png")}
+                  alt="waving"
+                  className="wave-icon"
+                />
+              </div>
+            </>
+          ) : (
+            <h2>Hey, there!</h2>
+          )}
         </div>
-      ) : null}
 
-      {overallWaste ? (
-        <div>
-          <p>
-            Wasted: <span>{overallWaste.length}</span>
-          </p>
-        </div>
-      ) : null}
+        <h3>Here's your food consumption and waste analytics</h3>
+      </div>
 
-      <h4>Previous 3 months</h4>
+      <div className="analytics-container">
+        <div className="analytic-card">
+          <div className="analytics-title">
+            <h4>Overall</h4>
+          </div>
 
-      {consumedLast3Months ? (
-        <div>
-          <p>
-            Saved: <span>{consumedLast3Months.length}</span>
-          </p>
-        </div>
-      ) : null}
+          <div className="wasted-status-section">
+            <div className="overall-consumed">
+              {overallConsume ? (
+                <div>
+                  <p className="waste-status-num">{overallConsume.length}</p>
+                  <p className="consumed">Consumed</p>
+                </div>
+              ) : null}
+            </div>
 
-      {wastedLast3Months ? (
-        <div>
-          <p>
-            Wasted: <span>{wastedLast3Months.length}</span>
-          </p>
-        </div>
-      ) : null}
+            <div>
+              <p>vs.</p>
+            </div>
 
-      <h4>This year</h4>
-      {consumedThisYear ? (
-        <div>
-          <p>
-            Saved: <span>{consumedThisYear.length}</span>
-          </p>
+            <div className="overall-wasted">
+              {overallWaste ? (
+                <div>
+                  <p className="waste-status-num">{overallWaste.length}</p>
+                  <p className="wasted">Wasted</p>
+                </div>
+              ) : null}
+            </div>
+          </div>
         </div>
-      ) : null}
-      {wastedThisYear ? (
-        <div>
-          <p>
-            Wasted: <span>{wastedThisYear.length}</span>
-          </p>
+
+        <div className="analytic-card">
+          <div className="analytics-title">
+            <h4>Previous 3 months</h4>
+          </div>
+
+          <div className="wasted-status-section">
+            <div className="three-months-consumed">
+              {consumedLast3Months ? (
+                <div>
+                  <p className="waste-status-num">
+                    {consumedLast3Months.length}
+                  </p>
+                  <p className="consumed">Consumed</p>
+                </div>
+              ) : null}
+            </div>
+
+            <div>
+              <p>vs.</p>
+            </div>
+
+            <div className="three-months-wasted">
+              {wastedLast3Months ? (
+                <div>
+                  <p className="waste-status-num">{wastedLast3Months.length}</p>
+                  <p className="wasted">Wasted</p>
+                </div>
+              ) : null}
+            </div>
+          </div>
         </div>
-      ) : null}
+
+        <div className="analytic-card">
+          <div className="analytics-title">
+            <h4>This year</h4>
+          </div>
+
+          <div className="wasted-status-section">
+            <div className="three-months-consumed">
+              {consumedThisYear ? (
+                <div>
+                  <p className="waste-status-num">{consumedThisYear.length}</p>
+                  <p className="consumed">Consumed</p>
+                </div>
+              ) : null}
+            </div>
+
+            <div>
+              <p>vs.</p>
+            </div>
+
+            <div className="this-year-wasted">
+              {wastedThisYear ? (
+                <div>
+                  <p className="waste-status-num">{wastedThisYear.length}</p>
+                  <p className="wasted">Wasted</p>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

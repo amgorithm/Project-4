@@ -1,0 +1,78 @@
+.analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  font-family: "Lato", sans-serif;
+}
+
+.analytics-title {
+  text-align: center;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.analytics-title h2 {
+  color: #43572c;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.analytics-title h3 {
+  font-size: 18px;
+  font-weight: normal;
+  color: black;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.wave-icon {
+  height: 23px;
+  margin-left: 5px;
+}
+
+.analytics-container {
+  margin-top: 15px;
+}
+
+.analytic-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  margin-bottom: 15px;
+}
+
+.analytics-title h4 {
+  font-size: 20px;
+  margin-top: 0;
+  /* margin-bottom: 10px; */
+}
+
+/*  */
+.wasted-status-section {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.wasted-status-section p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 5px 20px;
+}
+
+.waste-status-num {
+  font-size: 35px;
+}
