@@ -21,20 +21,17 @@ function Inventory() {
   console.log(inventory);
   return (
     <div className="inventory">
-      {/* {inventory ? (
-        <div>
-          {inventory.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`} key={food.name}>
-              <p>{food.name}</p>
-            </Link>
-          ))}
-          <p></p>
-        </div>
-      ) : (
-        <p>No items</p>
-      )} */}
       <div className="inventory-title">
         <h2>Your inventory</h2>
+      </div>
+
+      <div className="inventory-add-container">
+        <Link
+          to={"/inventory-add"}
+          style={{ textDecoration: "none", color: "#509498" }}
+        >
+          +
+        </Link>
       </div>
 
       {inventory ? (
@@ -65,7 +62,7 @@ function Inventory() {
                   <div className="item-right">
                     <p className="number">{food.quantity} </p>
                     <p className="quantity">stock</p>
-                    <p className="date">{food.created_at}</p>
+                    <p className="expires">{food.expiry_date}</p>
                   </div>
                 </div>
               );
@@ -95,7 +92,7 @@ function Inventory() {
                   <div className="item-right">
                     <p className="number">{food.quantity} </p>
                     <p className="quantity">stock</p>
-                    <p className="date">{food.created_at}</p>
+                    <p className="expires">{food.expiry_date}</p>
                   </div>
                 </div>
               );
@@ -125,7 +122,7 @@ function Inventory() {
                   <div className="item-right">
                     <p className="number">{food.quantity} </p>
                     <p className="quantity">stock</p>
-                    <p className="date">{food.created_at}</p>
+                    <p className="expires">{food.expiry_date}</p>
                   </div>
                 </div>
               );
@@ -154,7 +151,7 @@ function Inventory() {
                   <div className="item-right">
                     <p className="number">{food.quantity} </p>
                     <p className="quantity">stock</p>
-                    <p className="date">{food.created_at}</p>
+                    <p className="expires">{food.expiry_date}</p>
                   </div>
                 </div>
               );
@@ -183,7 +180,7 @@ function Inventory() {
                   <div className="item-right">
                     <p className="number">{food.quantity} </p>
                     <p className="quantity">stock</p>
-                    <p className="date">{food.created_at}</p>
+                    <p className="expires">{food.expiry_date}</p>
                   </div>
                 </div>
               );
@@ -211,7 +208,7 @@ function Inventory() {
                   <div className="item-right">
                     <p className="number">{food.quantity} </p>
                     <p className="quantity">stock</p>
-                    <p className="date">{food.created_at}</p>
+                    <p className="expires">{food.expiry_date}</p>
                   </div>
                 </div>
               );
@@ -241,7 +238,7 @@ function Inventory() {
                   <div className="item-right">
                     <p className="number">{food.quantity}</p>
                     <p className="quantity">stock</p>
-                    <p className="date">{food.created_at}</p>
+                    <p className="expires">{food.expiry_date}</p>
                   </div>
                 </div>
               );
@@ -271,7 +268,7 @@ function Inventory() {
                   <div className="item-right">
                     <p className="number">{food.quantity} </p>
                     <p className="quantity">stock</p>
-                    <p className="date">{food.created_at}</p>
+                    <p className="expires">{food.expiry_date}</p>
                   </div>
                 </div>
               );
@@ -283,15 +280,6 @@ function Inventory() {
       ) : (
         <p>No items</p>
       )}
-
-      <div className="inventory-add-container">
-        <Link
-          to={"/inventory-add"}
-          style={{ textDecoration: "none", color: "#509498" }}
-        >
-          +
-        </Link>
-      </div>
     </div>
   );
 }

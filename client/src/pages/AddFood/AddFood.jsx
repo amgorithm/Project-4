@@ -33,6 +33,15 @@ function AddFood() {
     });
   };
 
+  const isFormInvalid = () => {
+    return !(
+      food.name &&
+      food.quantity &&
+      food.expiry_date &&
+      food.category.name
+    );
+  };
+
   const foodCategories = [
     "Grains",
     "Meat and Fish",
@@ -45,45 +54,50 @@ function AddFood() {
   ];
 
   return (
-    <div>
-      <form className="add-food" onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input name="name" value={food.name} onChange={handleChange} />
-        <label>Quantity</label>
-        <input
-          type="number"
-          name="quantity"
-          value={food.quantity}
-          onChange={handleChange}
-        />
-        <label>Expiry date:</label>
-        <input
-          type="date"
-          name="expiry_date"
-          value={food.expiry_date}
-          onChange={handleChange}
-        />
-        <label>Categories</label>
-        <select
-          name="category"
-          value={food.category.name}
-          onChange={handleChange}
-        >
-          <option hidden={true}>Select</option>
-          <option default={true} disabled>
-            Category
-          </option>
-          {foodCategories.map((option) => {
-            const key = option.replaceAll(" ", "-");
-            return (
-              <option value={option} key={key}>
-                {option}
-              </option>
-            );
-          })}
-        </select>
-        <button>Save</button>
-      </form>
+    <div className="add">
+      <div className="add-title">
+        <h2>Add</h2>
+      </div>
+      <div className="add-form-container">
+        <form className="add-food" onSubmit={handleSubmit}>
+          <label>Name:</label>
+          <input name="name" value={food.name} onChange={handleChange} />
+          <label>Quantity</label>
+          <input
+            type="number"
+            name="quantity"
+            value={food.quantity}
+            onChange={handleChange}
+          />
+          <label>Expiry date:</label>
+          <input
+            type="date"
+            name="expiry_date"
+            value={food.expiry_date}
+            onChange={handleChange}
+          />
+          <label>Categories</label>
+          <select
+            name="category"
+            value={food.category.name}
+            onChange={handleChange}
+          >
+            <option hidden={true}>Select</option>
+            <option default={true} disabled>
+              Category
+            </option>
+            {foodCategories.map((option) => {
+              const key = option.replaceAll(" ", "-");
+              return (
+                <option value={option} key={key}>
+                  {option}
+                </option>
+              );
+            })}
+          </select>
+          <button disabled={isFormInvalid()}>Save</button>
+        </form>
+      </div>
     </div>
   );
 }

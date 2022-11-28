@@ -66,86 +66,110 @@ function InventoryEdit() {
   ];
 
   return (
-    <div>
-      <form className="edit-food" onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input name="name" value={updateItem.name} onChange={handleChange} />
-        <label>Quantity</label>
-        <input
-          type="number"
-          name="quantity"
-          value={updateItem.quantity}
-          onChange={handleChange}
-        />
-        <label>Expiry date:</label>
-        <input
-          type="date"
-          name="expiry_date"
-          value={updateItem.expiry_date}
-          onChange={handleChange}
-        />
-        {/* <label>Categories</label>
-        <select
-          name="category"
-          value={updateItem.category}
-          onChange={handleChange}
-        > */}
-        {/* <option hidden={true}>Select</option> */}
-        {/* <option default={true} disabled>
-            Category
-          </option>
-          <option value={1}>Grains</option>
-          <option value={2}>Meat and Fish</option>
-          <option value={3}>Fruits and Vegetables</option>
-          <option value={4}>Dairy</option>
-          <option value={5}>Snacks</option>
-          <option value={6}>Frozen Food</option>
-          <option value={7}>Condiments and Salad Dressings</option>
-          <option value={8}>Beverages</option>
-        </select> */}
-        <label>Categories</label>
-        <select
-          name="category"
-          value={updateItem.category.name}
-          onChange={handleChange}
-        >
-          <option hidden={true}>Select</option>
-          <option default={true} disabled>
-            Category
-          </option>
-          {foodCategories.map((option) => {
-            const key = option.name.replaceAll(" ", "-");
-            return (
-              <option value={option.name} data-id={option.id} key={key}>
-                {option.name}
-              </option>
-            );
-          })}
-        </select>
+    <div className="update">
+      <div className="update-title">
+        <h2>Update</h2>
+      </div>
 
-        <label>Expiry date:</label>
-        <input
-          type="date"
-          name="expiry_date"
-          value={updateItem.expiry_date}
-          onChange={handleChange}
-        />
-        <label>Consumed</label>
-        <input
-          type="radio"
-          name="wasted"
-          value={false}
-          onChange={handleChange}
-        />
-        <label>Wasted</label>
-        <input
-          type="radio"
-          name="wasted"
-          value={true}
-          onChange={handleChange}
-        />
-        <button>Update food</button>
-      </form>
+      <div className="update-form-container">
+        <form className="update-food-form" onSubmit={handleSubmit}>
+          <div className="name-section">
+            <div>
+              <label>Name</label>
+            </div>
+
+            <input
+              name="name"
+              value={updateItem.name}
+              onChange={handleChange}
+              className="input-box"
+            />
+          </div>
+
+          <div className="quantity-section">
+            <div>
+              <label>Quantity</label>
+            </div>
+
+            <input
+              type="number"
+              name="quantity"
+              value={updateItem.quantity}
+              onChange={handleChange}
+              className="input-box"
+            />
+          </div>
+
+          <div className="expiry-section">
+            <div>
+              <label>Expiry date</label>
+            </div>
+
+            <input
+              type="date"
+              name="expiry_date"
+              value={updateItem.expiry_date}
+              onChange={handleChange}
+              className="input-box-expiry"
+            />
+          </div>
+
+          <div className="category-section">
+            <div>
+              <label>Category</label>
+            </div>
+
+            <select
+              name="category"
+              value={updateItem.category.name}
+              onChange={handleChange}
+              className="input-select"
+            >
+              <option hidden={true}>Select</option>
+              <option default={true} disabled>
+                Category
+              </option>
+              {foodCategories.map((option) => {
+                const key = option.name.replaceAll(" ", "-");
+                return (
+                  <option value={option.name} data-id={option.id} key={key}>
+                    {option.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          <div className="wasted-status wasted-form">
+            <div className="consumed">
+              <div className="consumed-label">
+                <label>Consumed</label>
+              </div>
+
+              <input
+                type="radio"
+                name="wasted"
+                value={false}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="wasted">
+              <div className="wasted-label">
+                <label>Wasted</label>
+              </div>
+
+              <input
+                type="radio"
+                name="wasted"
+                value={true}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <button className="update-btn">Update food</button>
+        </form>
+      </div>
     </div>
   );
 }

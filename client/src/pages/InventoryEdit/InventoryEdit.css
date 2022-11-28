@@ -1,10 +1,84 @@
-.edit-food {
+.update {
   display: flex;
   flex-direction: column;
-  width: 100px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  font-family: "Lato", sans-serif;
 }
 
-.categories {
+.update-title h2 {
+  color: #43572c;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.update-form-container {
+  padding-top: 20px;
+  width: 250px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.update-food-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wasted-form {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.input-box {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.update-food-form label {
+  font-weight: 600;
+  color: #43572c;
+  padding-left: 2px;
+}
+
+.input-box-expiry {
+  font-family: "Lato", sans-serif;
+}
+
+.input-select,
+.input-box-expiry {
+  width: 200px;
+  height: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+  /* font-family: "Lato", sans-serif; */
+}
+
+.input-box,
+.input-select,
+.input-box-expiry {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.update-btn {
+  margin-top: 20px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  color: inherit;
+  padding: 5px 15px 5px 15px;
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
