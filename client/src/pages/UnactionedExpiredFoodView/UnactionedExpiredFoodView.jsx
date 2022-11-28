@@ -54,37 +54,61 @@ function UnactionedExpiredFoodView() {
   };
 
   return (
-    <div>
-      {updateWasteStatus ? (
-        <div>
-          <p>{updateWasteStatus.name}</p>
+    <div className="unactioned">
+      <div className="unactioned-container">
+        <div className="uanctioned-title">
+          {updateWasteStatus ? (
+            <div>
+              <h2>{updateWasteStatus.name}</h2>
+            </div>
+          ) : (
+            <p> No item</p>
+          )}
         </div>
-      ) : (
-        <p> No item</p>
-      )}
+        <div className="unactioned-delete">
+          <button onClick={removeFood} className="delete-btn">
+            <img
+              src={require("../../images/delete.png")}
+              alt="trash can"
+              className="unactioned-delete-img"
+            />
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div className="unactioned-information">
+        <form className="unactioned-form" onSubmit={handleSubmit}>
+          <div className="wasted-status">
+            <div className="consumed">
+              <div className="consumed-label">
+                <label>Consumed</label>
+              </div>
 
-      <form className="edit-food" onSubmit={handleSubmit}>
-        <label>Wasted:</label>
+              <input
+                type="radio"
+                name="wasted"
+                value={false}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="wasted">
+              <div className="wasted-label">
+                <label>Wasted</label>
+              </div>
 
-        <label>Consumed</label>
-        <input
-          type="radio"
-          name="wasted"
-          value={false}
-          onChange={handleChange}
-        />
-        <label>Wasted</label>
-        <input
-          type="radio"
-          name="wasted"
-          value={true}
-          onChange={handleChange}
-        />
-
-        <button>Update expiry status</button>
-      </form>
-
-      <button onClick={removeFood}>Delete</button>
+              <input
+                type="radio"
+                name="wasted"
+                value={true}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="save-btn-container">
+            <button className="save-btn">Save</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

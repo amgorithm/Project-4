@@ -16,7 +16,7 @@
   text-transform: uppercase;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 19pt;
+  font-size: 18pt;
 }
 
 .waste-not-info h3 {
@@ -27,7 +27,7 @@
 }
 
 .waste-not-header-photo {
-  height: 215px;
+  height: 171px;
 }
 
 .diagonal-arrow {
@@ -73,7 +73,7 @@ h4 {
 .waste-not-facts-container h3 {
   color: #43572c;
   text-transform: uppercase;
-  font-size: 14pt;
+  font-size: 13pt;
 }
 
 .waste-not-facts-container h4 {

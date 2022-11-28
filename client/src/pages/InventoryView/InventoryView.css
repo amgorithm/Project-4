@@ -57,7 +57,8 @@
 }
 
 .inventory-view hr {
-  background-color: red;
+  background-color: #e0e0e0;
+  border-radius: 5px;
   width: 250px;
   margin-top: 20px;
   margin-bottom: 20px;

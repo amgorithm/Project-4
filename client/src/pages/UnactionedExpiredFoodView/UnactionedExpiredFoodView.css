@@ -1,0 +1,85 @@
+.unactioned {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  font-family: "Lato", sans-serif;
+}
+
+.unactioned-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.uanctioned-title h2 {
+  color: #509498;
+  font-size: 40px;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.unactioned-delete-img {
+  height: 15px;
+  margin-left: 10px;
+}
+
+.delete-btn {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/*  */
+.unactioned-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.wasted-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unactioned hr {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.consumed {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 600;
+  color: #43572c;
+}
+
+.wasted {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 600;
+  color: #63666a;
+}
+
+.save-btn {
+  margin-top: 20px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  color: inherit;
+  padding: 5px 15px 5px 15px;
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
