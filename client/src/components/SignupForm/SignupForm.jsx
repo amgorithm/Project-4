@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import userService from "../../utils/userService";
 import useUser from "../../hooks/useUser";
+import "./SignupForm.css";
 
 function SignupForm({ updateMessage }) {
   const navigate = useNavigate();
@@ -46,79 +47,78 @@ function SignupForm({ updateMessage }) {
   };
 
   return (
-    <div>
-      <header className="header-footer">Sign Up</header>
-      <form className="form-horizontal" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <div className="col-sm-12">
+    <div className="signup">
+      <div className="signup-form-container">
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <div className="name-section">
             <input
               type="text"
-              className="form-control"
-              placeholder="name"
+              placeholder="Name*"
               value={state.name}
               name="name"
               onChange={handleChange}
+              className="signup-input"
             />
           </div>
-        </div>
-        <div className="form-group">
-          <div className="col-sm-12">
+
+          <div className="username-section">
             <input
               type="text"
-              className="form-control"
-              placeholder="username"
+              placeholder="Username*"
               value={state.username}
               name="username"
               onChange={handleChange}
+              className="signup-input"
             />
           </div>
-        </div>
-        <div className="form-group">
-          <div className="col-sm-12">
+
+          <div className="email--section">
             <input
               type="email"
-              className="form-control"
-              placeholder="Email"
+              placeholder="Email*"
               value={state.email}
               name="email"
               onChange={handleChange}
+              className="signup-input"
             />
           </div>
-        </div>
-        <div className="form-group">
-          <div className="col-sm-12">
+
+          <div className="pw-section">
             <input
               type="password"
-              className="form-control"
-              placeholder="Password"
+              placeholder="Password*"
               value={state.password}
               name="password"
               onChange={handleChange}
+              className="signup-input"
             />
           </div>
-        </div>
-        <div className="form-group">
-          <div className="col-sm-12">
+          <div className="pw-conf-section">
             <input
               type="password"
-              className="form-control"
-              placeholder="Confirm Password"
+              placeholder="Confirm Password*"
               value={state.password_confirmation}
               name="password_confirmation"
               onChange={handleChange}
+              className="signup-input"
             />
           </div>
-        </div>
-        <div className="form-group">
-          <div className="col-sm-12 text-center">
-            <button className="btn btn-default" disabled={isFormInvalid()}>
-              Sign Up
-            </button>
-            &nbsp;&nbsp;
-            <Link to="/">Cancel</Link>
+
+          <div className="signup-action">
+            <div className="signup-btn-container">
+              <button className="signup-btn" disabled={isFormInvalid()}>
+                Sign Up
+              </button>
+            </div>
+
+            <div className="cancel-link">
+              <Link to="/" style={{ textDecoration: "none", color: "#bebebe" }}>
+                Cancel
+              </Link>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,46 @@
-.SignupPage {
-  display: flex;
+.signup-page {
+  /* display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 50px; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  font-family: "Lato", sans-serif;
+}
+
+.signup-error-msg-container {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+
+  width: 280px;
+}
+
+.signup-title h2 {
+  color: #43572c;
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.err-list {
+  list-style-type: circle;
+  margin-right: 5px;
+}
+
+.err-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.err {
+  text-align: center;
+  color: #feb546;
 }

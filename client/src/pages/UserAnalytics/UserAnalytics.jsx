@@ -85,7 +85,7 @@ function UserAnalytics() {
         </div>
       ) : null}
 
-      <h4>Last 3 months</h4>
+      <h4>Previous 3 months</h4>
 
       {consumedLast3Months ? (
         <div>
