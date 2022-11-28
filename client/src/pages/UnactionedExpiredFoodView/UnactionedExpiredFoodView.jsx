@@ -6,6 +6,7 @@ import {
   wasteUnactionedUpdate,
 } from "../../utils/foodService";
 import useUser from "../../hooks/useUser";
+import "./UnactionedExpiredFoodView.css";
 
 function UnactionedExpiredFoodView() {
   const { user } = useUser();
@@ -80,19 +81,8 @@ function UnactionedExpiredFoodView() {
           onChange={handleChange}
         />
 
-        {/* <button name="wasted" value={false} onChange={handleChange}>
-          Consumed
-        </button>
-
-        <button name="wasted" value={true} onChange={handleChange}>
-          Wasted
-        </button> */}
         <button>Update expiry status</button>
       </form>
-
-      {/* <Link to={`/expired-inventory-edit/${foodID}`}>
-        <button>Update waste status</button>
-      </Link> */}
 
       <button onClick={removeFood}>Delete</button>
     </div>

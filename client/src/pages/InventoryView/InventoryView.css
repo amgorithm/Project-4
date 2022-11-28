@@ -1,0 +1,83 @@
+.inventory-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  font-family: "Lato", sans-serif;
+
+  /* border: 1px solid grey; */
+}
+
+.inventory-view-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.viewed-title h2 {
+  color: #509498;
+  font-size: 40px;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.inventory-edit-link {
+  margin-left: 10px;
+}
+
+.inventory-edit-link {
+  height: 15px;
+}
+
+/*  */
+.inventory-view-information {
+  display: flex;
+  /* flex-direction: ; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.inventory-view-information p {
+  padding-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.inventory-view button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.inventory-view hr {
+  background-color: red;
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.item-detail {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.delete-img {
+  height: 15px;
+  padding-bottom: 5px;
+}
+
+.item-bold {
+  font-weight: 600;
+  color: #43572c;
+}
+
+.item-remove {
+  color: #800020;
+}

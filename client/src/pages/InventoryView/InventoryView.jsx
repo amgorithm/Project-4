@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getFood, deleteFood } from "../../utils/foodService";
 import useUser from "../../hooks/useUser";
+import "./InventoryView.css";
 
 function InventoryView() {
   const { user } = useUser();
@@ -32,18 +33,59 @@ function InventoryView() {
 
   console.log(inventoryItem);
   return (
-    <div>
-      {inventoryItem ? (
-        <div>
-          <p>{inventoryItem.name}</p>
-        </div>
-      ) : (
-        <p>No item</p>
-      )}
-      <Link to={`/inventory-edit/${foodID}`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={removeFood}>Remove from inventory</button>
+    <div className="inventory-view">
+      <div className="inventory-view-container">
+        {inventoryItem ? (
+          <>
+            <div className="viewed-title">
+              <h2>{inventoryItem.name}</h2>
+            </div>
+            <div className="inventory-edit">
+              <Link
+                to={`/inventory-edit/${foodID}`}
+                style={{ textDecoration: "none" }}
+              >
+                <img
+                  src={require("../../images/edit.png")}
+                  alt="edit"
+                  className="inventory-edit-link"
+                />
+                {/* <button>E</button> */}
+              </Link>
+            </div>
+          </>
+        ) : (
+          <p>This item doesn't exist.</p>
+        )}
+      </div>
+      <hr />
+      <div className="inventory-view-information">
+        {inventoryItem ? (
+          <>
+            <div className="item-detail">
+              <p className="item-bold">{inventoryItem.quantity}</p>
+              <p>Piece</p>
+            </div>
+            <div className="item-detail">
+              <p className="item-bold">{inventoryItem.expiry_date}</p>
+              <p>Expires</p>
+            </div>
+
+            <div className="item-detail">
+              <button onClick={removeFood}>
+                <img
+                  src={require("../../images/delete.png")}
+                  alt="trash can"
+                  className="delete-img"
+                />
+              </button>
+              <p className="item-remove">Remove</p>
+            </div>
+          </>
+        ) : (
+          <p>Details for item doesn't exist.</p>
+        )}
+      </div>
     </div>
   );
 }
