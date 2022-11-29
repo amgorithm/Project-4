@@ -5,6 +5,8 @@
   align-items: center;
   font-family: "Lato", sans-serif;
   padding-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .search-title h2 {
@@ -26,4 +28,47 @@
 .results h3 {
   padding-left: 10px;
   font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-title h2 {
+    font-size: 40px;
+  }
+
+  .results h3 {
+    padding-left: 10px;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .search {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .search-title h2 {
+    font-size: 40px;
+  }
+
+  .results h3 {
+    padding-left: 10px;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .search {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .search-title h2 {
+    font-size: 45px;
+  }
+
+  .results h3 {
+    padding-left: 10px;
+    font-size: 35px;
+  }
 }
