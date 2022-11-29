@@ -213,17 +213,39 @@ function Homepage() {
       {/*  */}
 
       <div className="unactioned-container">
-        <h4>Unactioned expired foods:</h4>
-        {unactioned ? (
-          <>
+        {unactioned.length > 0 ? (
+          <div className="unactioned-card">
+            <div className="unactioned-title">
+              <h2>Unactioned</h2>
+              <img
+                src={require("../../images/warning.png")}
+                alt="warning"
+                className="warning"
+              />
+            </div>
+
+            <div>
+              <h3>
+                Track your food waste by updating expired foods waste status
+              </h3>
+            </div>
+
             {unactioned.map((food) => (
-              <Link to={`/expired-inventory-view/${food.id}/`} key={food.id}>
-                <div>
-                  <p>{food.name}</p>
-                </div>
-              </Link>
+              <div className="unactioned-card">
+                <Link
+                  to={`/expired-inventory-view/${food.id}/`}
+                  key={food.id}
+                  style={{ color: "#bebebe" }}
+                >
+                  <div>
+                    <h4>
+                      {food.name} <span className="unactioned-arrow">↗</span>
+                    </h4>
+                  </div>
+                </Link>
+              </div>
             ))}
-          </>
+          </div>
         ) : null}
       </div>
     </div>
