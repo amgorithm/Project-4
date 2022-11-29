@@ -18,7 +18,7 @@ const NavBar = () => {
       <NavLink
         to="/dashboard"
         className="dashboard"
-        style={{ textDecoration: "none" }}
+        style={{ textDecoration: "none", fontSize: "19px" }}
       >
         Dashboard
       </NavLink>

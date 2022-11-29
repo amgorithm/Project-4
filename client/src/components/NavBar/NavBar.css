@@ -66,3 +66,27 @@
 .navbar-search {
   padding-right: 10px;
 }
+
+/* Media queries */
+
+@media only screen and (min-width: 992px) {
+  .NavBar {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .waste-not-title {
+    font-size: 16pt;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .NavBar {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .waste-not-title {
+    font-size: 18pt;
+  }
+}

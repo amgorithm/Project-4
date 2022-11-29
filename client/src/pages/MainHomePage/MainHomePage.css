@@ -34,11 +34,8 @@
   font-size: 12px;
 }
 
-/* Facts section */
-.waste-not-facts-container {
-  /* border: 1px solid blue; */
-  padding-top: 20px;
-  text-align: center;
+.waste-not-facts-container p {
+  font-size: 17px;
 }
 
 .waste-not-facts-container {
@@ -46,6 +43,8 @@
   flex-direction: column;
   justify-content: center;
   background-color: #fcfaf8;
+  padding-top: 20px;
+  text-align: center;
   padding-left: 50px;
   padding-right: 50px;
   margin-top: 20px;
@@ -73,14 +72,15 @@ h4 {
 .waste-not-facts-container h3 {
   color: #43572c;
   text-transform: uppercase;
-  font-size: 13pt;
+  font-size: 13.5pt;
 }
 
 .waste-not-facts-container h4 {
   color: #509498;
-  font-size: 13.5pt;
+  font-size: 13pt;
   margin-bottom: 10px;
 }
+
 .food-waste-meaning {
   /* border: 1px solid orange; */
   margin-bottom: 5px;
@@ -94,6 +94,7 @@ h4 {
 .Loading-msg p {
   text-align: center;
 }
+
 .fact {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -131,7 +132,7 @@ h4 {
 .saving-money p {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 10.5pt;
+  font-size: 16px;
 }
 
 .waste-not-infograph {
@@ -139,4 +140,149 @@ h4 {
   /* Add breakpoint to be repeat 1, change to repeat 3 for larger screens  */
   grid-template-columns: 1fr;
   grid-gap: 15px;
+}
+
+/* Media queries */
+
+@media only screen and (min-width: 768px) {
+  .waste-not-header-photo {
+    height: 250px;
+  }
+
+  .waste-not-infograph {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .waste-not-info h2 {
+    font-size: 20pt;
+  }
+
+  .waste-not-info h3 {
+    font-size: 17pt;
+  }
+
+  .waste-not-facts-container h3 {
+    font-size: 15pt;
+  }
+
+  .waste-not-facts-container h4 {
+    font-size: 14pt;
+  }
+
+  .family-shopping-graph,
+  .user-analytics-graph,
+  .saving-money-graph {
+    height: 130px;
+  }
+
+  .waste-not-facts-container p {
+    font-size: 18px;
+  }
+
+  .family-shopping p,
+  .user-analytics p,
+  .saving-money p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .waste-not-header-photo {
+    height: 300px;
+  }
+
+  .waste-not-infograph {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .waste-not-container,
+  .waste-not-facts-container,
+  .waste-not-app-info {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .waste-not-info h2 {
+    font-size: 25pt;
+  }
+
+  .waste-not-info h3 {
+    font-size: 18pt;
+  }
+
+  .family-shopping-graph,
+  .user-analytics-graph,
+  .saving-money-graph {
+    height: 150px;
+  }
+
+  .waste-not-facts-container h3 {
+    font-size: 16pt;
+  }
+
+  .waste-not-facts-container h4 {
+    font-size: 14pt;
+  }
+
+  .waste-not-facts-container p {
+    font-size: 17px;
+  }
+
+  .family-shopping p,
+  .user-analytics p,
+  .saving-money p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .waste-not-header-photo {
+    height: 380px;
+  }
+
+  .waste-not-infograph {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .waste-not-container,
+  .waste-not-facts-container,
+  .waste-not-app-info {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .waste-not-info h2 {
+    font-size: 30pt;
+  }
+
+  .waste-not-info h3 {
+    font-size: 22.5pt;
+  }
+
+  .family-shopping-graph,
+  .user-analytics-graph,
+  .saving-money-graph {
+    height: 180px;
+  }
+
+  .waste-not-facts-container h3 {
+    font-size: 18pt;
+  }
+
+  .waste-not-facts-container h4 {
+    font-size: 16pt;
+  }
+
+  .waste-not-facts-container p {
+    font-size: 19px;
+  }
+
+  .family-shopping p,
+  .user-analytics p,
+  .saving-money p {
+    font-size: 17px;
+  }
 }

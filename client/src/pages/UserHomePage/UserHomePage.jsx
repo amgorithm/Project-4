@@ -14,11 +14,11 @@ function Homepage() {
   const { user } = useUser();
   let navigate = useNavigate();
 
-  const [unactioned, setUnactioned] = useState();
-  const [orange, setOrange] = useState();
-  const [yellow, setYellow] = useState();
-  const [green, setGreen] = useState();
-  const [red, setRed] = useState();
+  const [unactioned, setUnactioned] = useState([]);
+  const [orange, setOrange] = useState([]);
+  const [yellow, setYellow] = useState([]);
+  const [green, setGreen] = useState([]);
+  const [red, setRed] = useState([]);
 
   useEffect(() => {
     getUnactioned();
@@ -27,6 +27,8 @@ function Homepage() {
     getGreenExpiryDate();
     getRedExpiryDate();
   }, []);
+
+  console.log(red);
 
   // Unactioned
   async function getUnactioned() {
@@ -214,7 +216,9 @@ function Homepage() {
 
       <div className="unactioned-container">
         {/* double check this is the way to account for undefined err */}
-        {unactioned?.length > 0 ? (
+        {/* unactioned?.length > 0 ? */}
+
+        {unactioned.length > 0 ? (
           <div className="unactioned-card">
             <div className="unactioned-title">
               <h2>Unactioned</h2>
@@ -227,7 +231,8 @@ function Homepage() {
 
             <div>
               <h3>
-                Track your food waste by updating expired foods waste status
+                Track your food waste by updating the waste status of expired
+                foods
               </h3>
             </div>
 
