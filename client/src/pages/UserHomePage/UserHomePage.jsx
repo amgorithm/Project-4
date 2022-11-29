@@ -213,7 +213,8 @@ function Homepage() {
       {/*  */}
 
       <div className="unactioned-container">
-        {unactioned.length > 0 ? (
+        {/* double check this is the way to account for undefined err */}
+        {unactioned?.length > 0 ? (
           <div className="unactioned-card">
             <div className="unactioned-title">
               <h2>Unactioned</h2>
