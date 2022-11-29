@@ -32,12 +32,12 @@
 
 @media only screen and (min-width: 768px) {
   .search-title h2 {
-    font-size: 40px;
+    font-size: 35px;
   }
 
   .results h3 {
     padding-left: 10px;
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
@@ -53,7 +53,7 @@
 
   .results h3 {
     padding-left: 10px;
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
@@ -64,11 +64,11 @@
   }
 
   .search-title h2 {
-    font-size: 45px;
+    font-size: 40px;
   }
 
   .results h3 {
     padding-left: 10px;
-    font-size: 35px;
+    font-size: 25px;
   }
 }

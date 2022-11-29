@@ -229,7 +229,7 @@ function Homepage() {
               />
             </div>
 
-            <div>
+            <div className="unactioned-subtitle">
               <h3>
                 Track your food waste by updating the waste status of expired
                 foods
@@ -243,11 +243,9 @@ function Homepage() {
                   key={food.id}
                   style={{ color: "#bebebe" }}
                 >
-                  <div>
-                    <h4>
-                      {food.name} <span className="unactioned-arrow">↗</span>
-                    </h4>
-                  </div>
+                  <h4>
+                    {food.name} <span className="unactioned-arrow">↗</span>
+                  </h4>
                 </Link>
               </div>
             ))}

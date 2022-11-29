@@ -5,6 +5,8 @@
   align-items: center;
   padding-top: 20px;
   font-family: "Lato", sans-serif;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .user-homepage-title h2 {
@@ -18,7 +20,7 @@
 .this-week-container {
   /* border: 1px solid red; */
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .day-container {
@@ -150,10 +152,16 @@
   margin-right: 5px;
 }
 
+.unactioned-subtitle h3 {
+  font-size: 20px;
+  text-align: center;
+}
+
 .unactioned-card h4 {
   margin-top: 10px;
   margin-bottom: 10px;
   color: #afafaf;
+  font-size: 25px;
 }
 
 .unactioned-arrow {
@@ -162,10 +170,130 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .user-homepage-title h2 {
+    font-size: 35px;
+  }
+  .day-card h3 {
+    font-size: 25px;
+  }
+
+  .today-tag h4,
+  .orange-tag h4,
+  .yellow-tag h4,
+  .green-tag h4 {
+    font-size: 18px;
+  }
+
+  .user-food-info p {
+    font-size: 15px;
+  }
+
+  .warning {
+    height: 30px;
+  }
+
+  .unactioned-title h2 {
+    font-size: 35px;
+  }
+  .unactioned-subtitle h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .unactioned-card h4 {
+    font-size: 25px;
+  }
+
+  .unactioned-arrow {
+    font-size: 22px;
+  }
 }
 
 @media only screen and (min-width: 992px) {
+  .user-homepage {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .user-homepage-title h2 {
+    font-size: 40px;
+  }
+  .day-card h3 {
+    font-size: 25px;
+  }
+
+  .today-tag h4,
+  .orange-tag h4,
+  .yellow-tag h4,
+  .green-tag h4 {
+    font-size: 18px;
+  }
+
+  .user-food-info p {
+    font-size: 15px;
+  }
+
+  .warning {
+    height: 30px;
+  }
+
+  .unactioned-title h2 {
+    font-size: 40px;
+  }
+  .unactioned-subtitle h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .unactioned-card h4 {
+    font-size: 25px;
+  }
+
+  .unactioned-arrow {
+    font-size: 22px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
+  .user-homepage {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .user-homepage-title h2 {
+    font-size: 40px;
+  }
+  .day-card h3 {
+    font-size: 25px;
+  }
+
+  .today-tag h4,
+  .orange-tag h4,
+  .yellow-tag h4,
+  .green-tag h4 {
+    font-size: 18px;
+  }
+
+  .user-food-info p {
+    font-size: 15px;
+  }
+
+  .warning {
+    height: 35px;
+  }
+
+  .unactioned-title h2 {
+    font-size: 40px;
+  }
+  .unactioned-subtitle h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .unactioned-card h4 {
+    font-size: 25px;
+  }
+
+  .unactioned-arrow {
+    font-size: 22px;
+  }
 }
