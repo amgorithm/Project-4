@@ -214,13 +214,13 @@ function Homepage() {
 
       {/*  */}
 
-      <div className="unactioned-container">
+      <div className="user-homepage-unactioned-container">
         {/* double check this is the way to account for undefined err */}
         {/* unactioned?.length > 0 ? */}
 
         {unactioned.length > 0 ? (
           <div className="unactioned-card">
-            <div className="unactioned-title">
+            <div className="user-homepage-unactioned-title">
               <h2>Unactioned</h2>
               <img
                 src={require("../../images/warning.png")}

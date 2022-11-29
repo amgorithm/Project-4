@@ -56,7 +56,7 @@ function UnactionedExpiredFoodView() {
   return (
     <div className="unactioned">
       <div className="unactioned-container">
-        <div className="uanctioned-title">
+        <div className="unactioned-title">
           {updateWasteStatus ? (
             <div>
               <h2>{updateWasteStatus.name}</h2>

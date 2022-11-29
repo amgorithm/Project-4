@@ -119,9 +119,8 @@
   font-size: 25px;
 }
 
-.unactioned-container {
+.user-homepage-unactioned-container {
   margin-bottom: 100px;
-  /* border: 1px solid red; */
 }
 
 .unactioned-card {
@@ -132,7 +131,7 @@
   padding: 10px;
 }
 
-.unactioned-title {
+.user-homepage-unactioned-title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,7 +142,7 @@
   margin-left: 5px;
 }
 
-.unactioned-title h2 {
+.user-homepage-unactioned-title h2 {
   color: #43572c;
   font-weight: 500;
   font-size: 30px;
@@ -153,7 +152,7 @@
 }
 
 .unactioned-subtitle h3 {
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
 }
 
@@ -192,7 +191,7 @@
     height: 30px;
   }
 
-  .unactioned-title h2 {
+  .user-homepage-unactioned-title h2 {
     font-size: 35px;
   }
   .unactioned-subtitle h3 {
@@ -236,11 +235,11 @@
     height: 30px;
   }
 
-  .unactioned-title h2 {
+  .user-homepage-unactioned-title h2 {
     font-size: 40px;
   }
   .unactioned-subtitle h3 {
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
   }
 
@@ -281,7 +280,7 @@
     height: 35px;
   }
 
-  .unactioned-title h2 {
+  .user-homepage-unactioned-title h2 {
     font-size: 40px;
   }
   .unactioned-subtitle h3 {
