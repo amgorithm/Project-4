@@ -15,7 +15,7 @@
   margin-bottom: 0;
 }
 
-.about-info {
+.about {
   padding-left: 50px;
   padding-right: 50px;
 }
@@ -30,4 +30,54 @@
 
 .about-img {
   height: 300px;
+}
+
+/* Media queries */
+
+@media only screen and (min-width: 768px) {
+  .about-title h2 {
+    font-size: 40px;
+  }
+
+  .about-img {
+    height: 330px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .about-title h2 {
+    font-size: 45px;
+  }
+
+  .about-img {
+    height: 350px;
+  }
+
+  .about {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .about-info p {
+    font-size: 22.5px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .about-title h2 {
+    font-size: 50px;
+  }
+
+  .about-img {
+    height: 350px;
+  }
+
+  .about {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .about-info p {
+    font-size: 22.5px;
+  }
 }
