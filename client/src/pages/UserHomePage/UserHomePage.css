@@ -18,9 +18,10 @@
 .this-week-container {
   /* border: 1px solid red; */
   margin-top: 20px;
+  margin-bottom: 40px;
 }
 
-.today-container {
+.day-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,7 +34,7 @@
   align-items: center;
 }
 
-.today-card {
+.day-card {
   text-align: center;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -53,7 +54,7 @@
   margin-bottom: 0;
 }
 
-.today-card h3 {
+.day-card h3 {
   color: #509498;
   font-size: 25px;
   margin-left: 10px;
@@ -61,18 +62,45 @@
   margin-bottom: 0;
 }
 
-.today-card h4 {
+.today-tag h4 {
   font-size: 15px;
   padding: 5px;
   margin-top: 0;
   margin-bottom: 0;
-  color: red;
+  color: #f94144;
 }
 
-.today-tag {
+.today-tag,
+.orange-tag,
+.yellow-tag,
+.green-tag {
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   margin-left: 10px;
+}
+
+.orange-tag h4 {
+  font-size: 15px;
+  padding: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #f9844a;
+}
+
+.yellow-tag h4 {
+  font-size: 15px;
+  padding: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #f9c74f;
+}
+
+.green-tag h4 {
+  font-size: 15px;
+  padding: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #43aa8b;
 }
 
 .user-food-info p {
