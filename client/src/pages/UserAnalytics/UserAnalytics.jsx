@@ -14,12 +14,14 @@ import "./UserAnalytics.css";
 function UserAnalytics() {
   const { user, handleLogout } = useUser();
   let navigate = useNavigate();
-  const [overallConsume, setOverallConsume] = useState();
-  const [overallWaste, setOverallWaste] = useState();
-  const [consumedLast3Months, setConsumedLast3Months] = useState();
-  const [wastedLast3Months, setWastedLast3Months] = useState();
-  const [consumedThisYear, setConsumedThisYear] = useState();
-  const [wastedThisYear, setWastedThisYear] = useState();
+
+  const [overallConsume, setOverallConsume] = useState([]);
+  const [overallWaste, setOverallWaste] = useState([]);
+
+  const [consumedLast3Months, setConsumedLast3Months] = useState([]);
+  const [wastedLast3Months, setWastedLast3Months] = useState([]);
+  const [consumedThisYear, setConsumedThisYear] = useState([]);
+  const [wastedThisYear, setWastedThisYear] = useState([]);
 
   useEffect(() => {
     getOverallConsumed();
@@ -40,7 +42,8 @@ function UserAnalytics() {
     setOverallWaste(wasted);
   }
 
-  console.log(overallConsume);
+  console.log("overall consumed", overallConsume);
+  console.log("overall wasted", overallWaste);
 
   async function getConsumedLastThreeMonths() {
     const consumed = await threeMonthConsumed();
@@ -64,12 +67,9 @@ function UserAnalytics() {
 
   return (
     <div className="analytics">
-      {/* <Link to="/" onClick={handleLogout}>
-        Logout
-      </Link> */}
       <div className="analytics-title">
         <div className="user">
-          {overallConsume ? (
+          {overallConsume.length > 0 ? (
             <>
               <div>
                 <h2>Hey, {overallConsume[0].user.username}!</h2>
@@ -84,7 +84,16 @@ function UserAnalytics() {
               </div>
             </>
           ) : (
-            <h2>Hey, there!</h2>
+            <>
+              <h2>Hey there!</h2>
+              <div>
+                <img
+                  src={require("../../images/wave.png")}
+                  alt="waving"
+                  className="wave-icon"
+                />
+              </div>
+            </>
           )}
         </div>
 
@@ -183,6 +192,11 @@ function UserAnalytics() {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Link to="/" onClick={handleLogout}>
+          Logout
+        </Link>
       </div>
     </div>
   );
