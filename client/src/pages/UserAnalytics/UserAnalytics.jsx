@@ -111,20 +111,20 @@ function UserAnalytics() {
               {overallConsume ? (
                 <div>
                   <p className="waste-status-num">{overallConsume.length}</p>
-                  <p className="consumed">Consumed</p>
+                  <p className="consumed ua-txt">Consumed</p>
                 </div>
               ) : null}
             </div>
 
             <div>
-              <p>vs.</p>
+              <p className="vs">vs.</p>
             </div>
 
             <div className="overall-wasted">
               {overallWaste ? (
                 <div>
                   <p className="waste-status-num">{overallWaste.length}</p>
-                  <p className="wasted">Wasted</p>
+                  <p className="wasted ua-txt">Wasted</p>
                 </div>
               ) : null}
             </div>
@@ -143,20 +143,20 @@ function UserAnalytics() {
                   <p className="waste-status-num">
                     {consumedLast3Months.length}
                   </p>
-                  <p className="consumed">Consumed</p>
+                  <p className="consumed ua-txt">Consumed</p>
                 </div>
               ) : null}
             </div>
 
             <div>
-              <p>vs.</p>
+              <p className="vs">vs.</p>
             </div>
 
             <div className="three-months-wasted">
               {wastedLast3Months ? (
                 <div>
                   <p className="waste-status-num">{wastedLast3Months.length}</p>
-                  <p className="wasted">Wasted</p>
+                  <p className="wasted ua-txt">Wasted</p>
                 </div>
               ) : null}
             </div>
@@ -173,28 +173,32 @@ function UserAnalytics() {
               {consumedThisYear ? (
                 <div>
                   <p className="waste-status-num">{consumedThisYear.length}</p>
-                  <p className="consumed">Consumed</p>
+                  <p className="consumed ua-txt">Consumed</p>
                 </div>
               ) : null}
             </div>
 
             <div>
-              <p>vs.</p>
+              <p className="vs">vs.</p>
             </div>
 
             <div className="this-year-wasted">
               {wastedThisYear ? (
                 <div>
                   <p className="waste-status-num">{wastedThisYear.length}</p>
-                  <p className="wasted">Wasted</p>
+                  <p className="wasted ua-txt">Wasted</p>
                 </div>
               ) : null}
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <Link to="/" onClick={handleLogout}>
+      <div className="logout-btn">
+        <Link
+          to="/"
+          onClick={handleLogout}
+          style={{ textDecoration: "none", color: "#509498", fontSize: "20px" }}
+        >
           Logout
         </Link>
       </div>

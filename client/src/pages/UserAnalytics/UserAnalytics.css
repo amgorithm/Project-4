@@ -5,6 +5,8 @@
   justify-content: center;
   padding-top: 20px;
   font-family: "Lato", sans-serif;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .analytics-title {
@@ -75,4 +77,108 @@
 
 .waste-status-num {
   font-size: 35px;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .analytics-title h2 {
+    font-size: 40px;
+  }
+  .analytics-title h3 {
+    font-size: 22px;
+  }
+
+  .analytics-title h4 {
+    font-size: 22.5px;
+  }
+  .wave-icon {
+    height: 28px;
+    margin-left: 5px;
+  }
+  .waste-status-num {
+    font-size: 38px;
+  }
+
+  .vs {
+    font-size: 18px;
+  }
+
+  .ua-txt {
+    font-size: 17.5px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .analytics {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .analytics-title h2 {
+    font-size: 45px;
+  }
+  .analytics-title h3 {
+    font-size: 23px;
+  }
+
+  .analytics-title h4 {
+    font-size: 23px;
+  }
+
+  .wave-icon {
+    height: 30px;
+    margin-left: 5px;
+  }
+  .waste-status-num {
+    font-size: 38px;
+  }
+
+  .vs {
+    font-size: 20px;
+  }
+
+  .ua-txt {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .analytics {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .analytics-title h2 {
+    font-size: 50px;
+  }
+  .analytics-title h3 {
+    font-size: 25.5px;
+  }
+
+  .analytics-title h4 {
+    font-size: 23px;
+  }
+
+  .wave-icon {
+    height: 35px;
+    margin-left: 5px;
+  }
+  .waste-status-num {
+    font-size: 40px;
+  }
+
+  .vs {
+    font-size: 22px;
+  }
+
+  .ua-txt {
+    font-size: 20px;
+  }
 }
