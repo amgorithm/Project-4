@@ -59,71 +59,111 @@ function Homepage() {
   }
 
   return (
-    <div>
-      <Link to={"/inventory"}>Inventory</Link>
-      <h4>Unactioned expired foods:</h4>
-      {unactioned ? (
-        <div>
-          {unactioned.map((food) => (
-            <Link to={`/expired-inventory-view/${food.id}/`} key={food.id}>
-              <div>{food.name}</div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <p>No items</p>
-      )}
+    <div className="user-homepage">
+      <div className="user-homepage-title">
+        <h2>
+          This week in your
+          <span>
+            {" "}
+            <Link to={"/inventory"} style={{ color: "#43572c" }}>
+              inventory
+            </Link>{" "}
+          </span>{" "}
+          <span className="inventory-arrow">↗</span>
+        </h2>
+      </div>
 
-      <h4>Today:</h4>
-      {red ? (
-        <div>
-          {red.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
-              <div>{food.name}</div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <p>No items</p>
-      )}
+      <div className="this-week-container">
+        <div className="today-container">
+          {red ? (
+            <>
+              {red.map((food) => (
+                <div className="today-card">
+                  <div className="title-tag">
+                    <div className="user-food-title">
+                      <Link
+                        to={`/inventory-view/${food.id}/`}
+                        key={food.id}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <h3>{food.name}</h3>
+                      </Link>
+                    </div>
 
-      <h4>1-3 days:</h4>
-      {orange ? (
-        <div>
-          {orange.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
-              <div>{food.name}</div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <p>No items</p>
-      )}
+                    <div className="today-tag">
+                      <h4>Today</h4>
+                    </div>
+                  </div>
 
-      <h4>4-5 days:</h4>
-      {yellow ? (
-        <div>
-          {yellow.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
-              <div>{food.name}</div>
-            </Link>
-          ))}
+                  <div className="user-food-info">
+                    <p>{food.quantity} piece</p>
+                    <p>-</p>
+                    <p>{food.expiry_date}</p>
+                  </div>
+                  <hr className="user-homepage-hr" />
+                </div>
+              ))}
+            </>
+          ) : (
+            <p>No items</p>
+          )}
         </div>
-      ) : (
-        <p>No items</p>
-      )}
-      <h4>6-7 days:</h4>
-      {green ? (
-        <div>
-          {green.map((food) => (
-            <Link to={`/inventory-view/${food.id}/`} key={food.id}>
-              <div>{food.name}</div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <p>No items</p>
-      )}
+
+        <h4>1-3 days:</h4>
+        {orange ? (
+          <div>
+            {orange.map((food) => (
+              <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+                <div>{food.name}</div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p>No items</p>
+        )}
+
+        <h4>4-5 days:</h4>
+        {yellow ? (
+          <div>
+            {yellow.map((food) => (
+              <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+                <div>{food.name}</div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p>No items</p>
+        )}
+        <h4>6-7 days:</h4>
+        {green ? (
+          <div>
+            {green.map((food) => (
+              <Link to={`/inventory-view/${food.id}/`} key={food.id}>
+                <div>{food.name}</div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p>No items</p>
+        )}
+      </div>
+
+      <div className="unactioned-container">
+        <h4>Unactioned expired foods:</h4>
+        {unactioned ? (
+          <>
+            {unactioned.map((food) => (
+              <Link to={`/expired-inventory-view/${food.id}/`} key={food.id}>
+                <div>
+                  <p>{food.name}</p>
+                </div>
+              </Link>
+            ))}
+          </>
+        ) : (
+          <p>No items</p>
+        )}
+      </div>
     </div>
   );
 }
