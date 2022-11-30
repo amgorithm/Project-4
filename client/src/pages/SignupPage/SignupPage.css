@@ -1,25 +1,17 @@
 .signup-page {
-  /* display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 20px;
   font-family: "Lato", sans-serif;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .signup-error-msg-container {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-
   width: 280px;
+  margin-bottom: 100px;
 }
 
 .signup-title h2 {
@@ -43,4 +35,49 @@
 .err {
   text-align: center;
   color: #feb546;
+}
+
+@media only screen and (min-width: 768px) {
+  .signup-title h2 {
+    font-size: 35px;
+  }
+
+  .err-li,
+  .err,
+  .err-info {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .signup-page {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .signup-title h2 {
+    font-size: 40px;
+  }
+
+  .err-li,
+  .err,
+  .err-info {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .signup-page {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .signup-title h2 {
+    font-size: 40px;
+  }
+
+  .err-li,
+  .err,
+  .err-info {
+    font-size: 18px;
+  }
 }

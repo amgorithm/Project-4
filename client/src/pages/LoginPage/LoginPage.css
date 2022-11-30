@@ -1,16 +1,12 @@
 .login-page {
-  /* display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 20px;
   font-family: "Lato", sans-serif;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .login-title h2 {
@@ -64,4 +60,70 @@
 
 .login-err {
   width: 280px;
+}
+
+@media only screen and (min-width: 768px) {
+  .login-title h2 {
+    font-size: 35px;
+  }
+  .login-btn {
+    font-size: 17px;
+  }
+
+  .login-input {
+    font-size: 17px;
+  }
+  .login-input {
+    font-size: 17px;
+  }
+
+  .login-err {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .login-page {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .login-title h2 {
+    font-size: 40px;
+  }
+
+  .login-input {
+    font-size: 18px;
+  }
+
+  .login-btn {
+    font-size: 18px;
+  }
+
+  .login-err {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .login-page {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .login-title h2 {
+    font-size: 40px;
+  }
+
+  .login-input {
+    font-size: 18px;
+  }
+
+  .login-btn {
+    font-size: 18px;
+  }
+
+  .login-err {
+    font-size: 18px;
+  }
 }

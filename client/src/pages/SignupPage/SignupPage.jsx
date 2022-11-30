@@ -26,7 +26,7 @@ function SignupPage() {
               <p className="err"> Oops! {message}.</p>
             </div>
 
-            <div>
+            <div className="err-info">
               <p>Please check:</p>
               <p>Your username and email are unique</p>
               <p>Your password is secure:</p>

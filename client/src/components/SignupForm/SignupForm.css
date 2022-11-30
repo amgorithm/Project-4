@@ -44,3 +44,33 @@
 .cancel-link {
   margin-top: 10px;
 }
+
+@media only screen and (min-width: 768px) {
+  .signup-input {
+    font-size: 17px;
+  }
+
+  .signup-btn-container {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .signup-input {
+    font-size: 18px;
+  }
+
+  .signup-btn-container {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .signup-input {
+    font-size: 18px;
+  }
+
+  .signup-btn-container {
+    font-size: 18px;
+  }
+}
