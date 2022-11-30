@@ -28,7 +28,7 @@ function Inventory() {
       <div className="inventory-add-container">
         <Link
           to={"/inventory-add"}
-          style={{ textDecoration: "none", color: "#509498" }}
+          style={{ textDecoration: "none", color: "#509498", fontSize: "20px" }}
         >
           +
         </Link>

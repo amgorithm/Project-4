@@ -5,6 +5,8 @@
   justify-content: center;
   margin-top: 100px;
   font-family: "Lato", sans-serif;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .unactioned-container {
@@ -106,6 +108,11 @@
 }
 
 @media only screen and (min-width: 992px) {
+  .unactioned {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
   .unactioned-title h2 {
     font-size: 42.5px;
   }
@@ -123,6 +130,11 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .unactioned {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
   .unactioned-title h2 {
     font-size: 45px;
   }
