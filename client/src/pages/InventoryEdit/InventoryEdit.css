@@ -136,14 +136,14 @@
   }
 
   .update-btn {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .update {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 
   .update-title h2 {
@@ -166,6 +166,6 @@
   }
 
   .update-btn {
-    font-size: 19px;
+    font-size: 22px;
   }
 }

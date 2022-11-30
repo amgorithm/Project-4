@@ -5,6 +5,8 @@
   justify-content: center;
   padding-top: 20px;
   font-family: "Lato", sans-serif;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .add-title h2 {
@@ -33,13 +35,13 @@
 .save-btn-container {
   display: flex;
   justify-content: center;
+  color: #509498;
 }
 
 .save-btn {
   margin-top: 20px;
   background: none;
   border: 1px solid #e0e0e0;
-  color: inherit;
   padding: 5px 15px 5px 15px;
   border-radius: 8px;
   font: inherit;
@@ -48,10 +50,31 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .add-title h2 {
+    font-size: 35px;
+  }
+
+  .add-food label {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (min-width: 992px) {
+  .add-title h2 {
+    font-size: 40px;
+  }
+
+  .add-food label {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
+  .add-title h2 {
+    font-size: 40px;
+  }
+
+  .add-food label {
+    font-size: 19px;
+  }
 }
