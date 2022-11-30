@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 100px;
+  margin-bottom: 100px;
   font-family: "Lato", sans-serif;
   padding-left: 50px;
   padding-right: 50px;
@@ -31,10 +32,8 @@
   height: 15px;
 }
 
-/*  */
 .inventory-view-information {
   display: flex;
-  /* flex-direction: ; */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -83,13 +82,10 @@
   color: #800020;
 }
 
+/* Media queries */
 @media only screen and (min-width: 768px) {
   .viewed-title h2 {
-    color: #509498;
     font-size: 40px;
-    margin-left: 10px;
-    margin-top: 0;
-    margin-bottom: 0;
   }
 
   .inventory-view-information p {

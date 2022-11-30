@@ -14,7 +14,6 @@ import AddFood from "../AddFood/AddFood";
 import UserAnalytics from "../UserAnalytics/UserAnalytics";
 import InventorySearch from "../InventorySearch/InventorySearch";
 import UnactionedExpiredFoodView from "../UnactionedExpiredFoodView/UnactionedExpiredFoodView";
-// import UnactionedExpiredFoodEdit from "../UnactionedExpiredFoodEdit/UnactionedExpiredFoodEdit";
 import About from "../About/About";
 import Footer from "../../components/Footer/Footer";
 import { ProtectedRoute } from "../../utils/route";
@@ -35,34 +34,8 @@ function App() {
         <Routes>
           <Route exact path="*" element={<Navigate to="/" />} />
           <Route exact path="/" element={<MainHomePage />} />
-          {/* <Route exact path="/dashboard" element={<UserHomePage />} /> */}
           <Route exact path="/signup" element={<SignupPage />} />
           <Route exact path="/login" element={<LoginPage />} />
-          {/* <Route exact path="/inventory" element={<Inventory />} /> */}
-          {/* <Route exact path="/inventory-add" element={<AddFood />} /> */}
-          {/* <Route exact path="/profile" element={<UserAnalytics />} />
-        <Route exact path="/search" element={<InventorySearch />} /> */}
-          {/* <Route
-          exact
-          path="/inventory-view/:foodID"
-          element={<InventoryView />}
-        /> */}
-          {/* <Route
-          exact
-          path="/inventory-edit/:foodID"
-          element={<InventoryEdit />}
-        /> */}
-          {/* <Route
-          exact
-          path="/expired-inventory-view/:foodID"
-          element={<UnactionedExpiredFoodView />}
-        />
-        <Route
-          exact
-          path="/expired-inventory-edit/:foodID"
-          element={<UnactionedExpiredFoodEdit />}
-        /> */}
-
           <Route
             exact
             path="/dashboard"
@@ -122,16 +95,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-          {/* View and edit for expired food combined */}
-          {/* <Route
-          exact
-          path="/expired-inventory-edit/:foodID"
-          element={
-            <ProtectedRoute>
-              <UnactionedExpiredFoodEdit />
-            </ProtectedRoute>
-          }
-        /> */}
           <Route
             exact
             path="/profile"

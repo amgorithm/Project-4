@@ -7,7 +7,7 @@ import "./Inventory.css";
 function Inventory() {
   const { user } = useUser();
   let navigate = useNavigate();
-  const [inventory, setInventory] = useState();
+  const [inventory, setInventory] = useState([]);
 
   useEffect(() => {
     getFoodData();
@@ -18,7 +18,6 @@ function Inventory() {
     setInventory(inventory);
   }
 
-  console.log(inventory);
   return (
     <div className="inventory">
       <div className="inventory-title">

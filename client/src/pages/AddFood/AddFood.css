@@ -7,6 +7,7 @@
   font-family: "Lato", sans-serif;
   padding-left: 50px;
   padding-right: 50px;
+  margin-bottom: 100px;
 }
 
 .add-title h2 {
@@ -49,6 +50,7 @@
   outline: inherit;
 }
 
+/* Media queries */
 @media only screen and (min-width: 768px) {
   .add-title h2 {
     font-size: 35px;

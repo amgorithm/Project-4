@@ -3,7 +3,7 @@ import { foodWasteFacts } from "../../utils/foodService";
 import "./MainHomePage.css";
 
 function MainHomePage() {
-  const [foodWasteInfo, setFoodWasteInfo] = useState();
+  const [foodWasteInfo, setFoodWasteInfo] = useState([]);
 
   useEffect(() => {
     getFoodWasteFacts();
@@ -13,8 +13,6 @@ function MainHomePage() {
     const fact = await foodWasteFacts();
     setFoodWasteInfo(fact);
   }
-
-  console.log(foodWasteInfo);
 
   return (
     <div className="homepage-body">

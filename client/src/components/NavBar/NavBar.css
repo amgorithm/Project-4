@@ -1,23 +1,8 @@
-/* .NavBar {
-  display: flex;
-  justify-content: center;
-  margin: 0 0 20px;
-}
-
-.NavBar-link {
-  margin: 0 10px;
-}
-
-.NavBar-welcome {
-  color: grey;
-} */
-
 .NavBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fcfaf8;
-  /* border: 1px solid green; */
   padding-left: 50px;
   padding-right: 50px;
   height: 60px;
@@ -68,6 +53,11 @@
 }
 
 /* Media queries */
+@media only screen and (min-width: 768px) {
+  .waste-not-title {
+    font-size: 15pt;
+  }
+}
 
 @media only screen and (min-width: 992px) {
   .NavBar {

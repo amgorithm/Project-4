@@ -1,26 +1,19 @@
 import tokenService from "./tokenService";
 
 function signup(user) {
-  return (
-    console.log(user),
-    fetch("/api/v1/signup/", {
-      method: "POST",
-      headers: new Headers({ "Content-Type": "application/json" }),
-      body: JSON.stringify(user),
+  return fetch("/api/v1/signup/", {
+    method: "POST",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(user),
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Something went wrong");
+      }
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          // Probably a duplicate email
-          throw new Error("Something went wrong");
-        }
-      })
-      // Parameter destructuring!
-      .then(({ token }) => tokenService.setToken(token))
-  );
-  // The above could have been written as
-  //.then((token) => token.token);
+    .then(({ token }) => tokenService.setToken(token));
 }
 
 function getUser() {
@@ -32,14 +25,12 @@ function logout() {
 }
 
 function login(creds) {
-  console.log(creds);
   return fetch("/api/v1/login/", {
     method: "POST",
     headers: new Headers({ "Content-Type": "application/json" }),
     body: JSON.stringify(creds),
   })
     .then((res) => {
-      // Valid login if we have a status of 2xx (res.ok)
       if (res.ok) return res.json();
       throw new Error("Bad Credentials!");
     })

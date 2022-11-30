@@ -1,5 +1,6 @@
 import tokenService from "./tokenService.js";
 
+// Main homepage food waste
 export const foodWasteFacts = async () => {
   try {
     let res = await fetch("/api/v1/food-waste-facts/", {
@@ -11,7 +12,7 @@ export const foodWasteFacts = async () => {
   }
 };
 
-// * Unactioned list
+// Unactioned food waste
 export const wasteUnactionedList = async () => {
   try {
     const token = tokenService.getToken();
@@ -87,7 +88,7 @@ export const wasteUnactionedDelete = async (expiredItem, foodID) => {
   }
 };
 
-// Red
+// User homepage expiring this week
 export const redExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
@@ -103,7 +104,6 @@ export const redExpiryDate = async () => {
   }
 };
 
-// Orange
 export const orangeExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
@@ -119,7 +119,6 @@ export const orangeExpiryDate = async () => {
   }
 };
 
-// Yellow
 export const yellowExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
@@ -135,7 +134,6 @@ export const yellowExpiryDate = async () => {
   }
 };
 
-// Green
 export const greenExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
@@ -149,6 +147,7 @@ export const greenExpiryDate = async () => {
   } catch (error) {}
 };
 
+// Inventory
 export const getFoods = async () => {
   try {
     const token = tokenService.getToken();
@@ -233,6 +232,7 @@ export const deleteFood = async (food, foodID) => {
   }
 };
 
+// User analytics
 export const overallConsumed = async () => {
   try {
     const token = tokenService.getToken();
@@ -323,6 +323,7 @@ export const thisYearWasted = async () => {
   }
 };
 
+// Inventory search
 export const inventorySearch = async (query) => {
   try {
     const token = tokenService.getToken();

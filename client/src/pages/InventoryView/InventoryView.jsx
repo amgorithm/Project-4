@@ -9,7 +9,7 @@ function InventoryView() {
   const { foodID } = useParams();
   let navigate = useNavigate();
 
-  const [inventoryItem, setInventoryItem] = useState();
+  const [inventoryItem, setInventoryItem] = useState([]);
 
   useEffect(() => {
     getFoodData();
@@ -26,12 +26,10 @@ function InventoryView() {
 
   const removeFood = () => {
     deleteFood(inventoryItem, foodID).then((res) => {
-      console.log("deleted");
       navigate(`/inventory`);
     });
   };
 
-  console.log(inventoryItem);
   return (
     <div className="inventory-view">
       <div className="inventory-view-container">
@@ -50,12 +48,11 @@ function InventoryView() {
                   alt="edit"
                   className="inventory-edit-link"
                 />
-                {/* <button>E</button> */}
               </Link>
             </div>
           </>
         ) : (
-          <p>This item doesn't exist.</p>
+          <p>Loading, please wait.</p>
         )}
       </div>
       <hr />
@@ -83,7 +80,7 @@ function InventoryView() {
             </div>
           </>
         ) : (
-          <p>Details for item doesn't exist.</p>
+          <p>Loading, please wait.</p>
         )}
       </div>
     </div>

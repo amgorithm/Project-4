@@ -42,7 +42,6 @@ function UnactionedExpiredFoodView() {
       ...updateWasteStatus,
       wasted: e.target.value,
     });
-    console.log("clicked to update", updateWasteStatus);
   };
 
   const handleSubmit = (e) => {
@@ -62,7 +61,7 @@ function UnactionedExpiredFoodView() {
               <h2>{updateWasteStatus.name}</h2>
             </div>
           ) : (
-            <p> No item</p>
+            <p>Loading, please wait</p>
           )}
         </div>
         <div className="unactioned-delete">

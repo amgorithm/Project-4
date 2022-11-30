@@ -28,8 +28,6 @@ function Homepage() {
     getRedExpiryDate();
   }, []);
 
-  console.log(red);
-
   // Unactioned
   async function getUnactioned() {
     const unactioned = await wasteUnactionedList();
@@ -110,7 +108,6 @@ function Homepage() {
         </div>
 
         <div className="day-container">
-          {/* <h4>1-3 days:</h4> */}
           {orange ? (
             <>
               {orange.map((food) => (
@@ -144,7 +141,6 @@ function Homepage() {
         </div>
 
         <div className="day-container">
-          {/* <h4>4-5 days:</h4> */}
           {yellow ? (
             <>
               {yellow.map((food) => (
@@ -178,7 +174,6 @@ function Homepage() {
         </div>
 
         <div className="day-container">
-          {/* <h4>6-7 days:</h4> */}
           {green ? (
             <>
               {green.map((food) => (
@@ -212,12 +207,7 @@ function Homepage() {
         </div>
       </div>
 
-      {/*  */}
-
       <div className="user-homepage-unactioned-container">
-        {/* double check this is the way to account for undefined err */}
-        {/* unactioned?.length > 0 ? */}
-
         {unactioned.length > 0 ? (
           <div className="unactioned-card">
             <div className="user-homepage-unactioned-title">

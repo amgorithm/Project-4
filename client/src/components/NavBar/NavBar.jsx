@@ -23,7 +23,6 @@ const NavBar = () => {
         Dashboard
       </NavLink>
       <NavLink to="/profile">
-        {/* <span className="NavBar-welcome">{user}</span> */}
         <img
           src={require("../../images/user.png")}
           alt="profile avatar"

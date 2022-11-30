@@ -7,6 +7,7 @@
   font-family: "Lato", sans-serif;
   padding-left: 50px;
   padding-right: 50px;
+  margin-bottom: 100px;
 }
 
 .user-homepage-title h2 {
@@ -18,7 +19,6 @@
 }
 
 .this-week-container {
-  /* border: 1px solid red; */
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -40,8 +40,6 @@
   text-align: center;
   margin-top: 5px;
   margin-bottom: 5px;
-  /* border: 1px solid #e0e0e0; */
-  /* border-radius: 20px; */
   width: 250px;
 }
 
@@ -168,6 +166,7 @@
   color: #43572c;
 }
 
+/* Media queries */
 @media only screen and (min-width: 768px) {
   .user-homepage-title h2 {
     font-size: 35px;
@@ -196,7 +195,6 @@
   }
   .unactioned-subtitle h3 {
     font-size: 20px;
-    text-align: center;
   }
 
   .unactioned-card h4 {
@@ -240,7 +238,6 @@
   }
   .unactioned-subtitle h3 {
     font-size: 20px;
-    text-align: center;
   }
 
   .unactioned-card h4 {
@@ -285,7 +282,6 @@
   }
   .unactioned-subtitle h3 {
     font-size: 22px;
-    text-align: center;
   }
 
   .unactioned-card h4 {

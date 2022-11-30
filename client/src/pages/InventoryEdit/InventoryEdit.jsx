@@ -49,7 +49,7 @@ function InventoryEdit() {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateFood(updateItem, foodID).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       navigate(`/inventory`);
     });
   };

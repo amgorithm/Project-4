@@ -17,10 +17,8 @@ function AddFood() {
 
   const handleChange = (e) => {
     if (e.target.name === "category") {
-      console.log(food);
       setFood({ ...food, category: { name: e.target.value } });
     } else {
-      console.log(food);
       setFood({ ...food, [e.target.name]: e.target.value });
     }
   };
@@ -28,7 +26,7 @@ function AddFood() {
   const handleSubmit = (e) => {
     e.preventDefault();
     addAFood(food).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       navigate(`/inventory`);
     });
   };

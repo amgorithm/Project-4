@@ -42,9 +42,6 @@ function UserAnalytics() {
     setOverallWaste(wasted);
   }
 
-  console.log("overall consumed", overallConsume);
-  console.log("overall wasted", overallWaste);
-
   async function getConsumedLastThreeMonths() {
     const consumed = await threeMonthConsumed();
     setConsumedLast3Months(consumed);

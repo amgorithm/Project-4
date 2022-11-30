@@ -8,7 +8,7 @@ import "./InventorySearch.css";
 function InventorySearch() {
   const { user } = useUser();
   let navigate = useNavigate();
-  const [inventoryList, setInventoryList] = useState();
+  const [inventoryList, setInventoryList] = useState([]);
   const [query, setQuery] = useState("");
   const debounce = useDebounce(query, 500);
 
@@ -25,7 +25,7 @@ function InventorySearch() {
       setInventoryList("");
     }
   }
-  // console.log(inventoryList);
+
   return (
     <div className="search">
       <div className="search-title">

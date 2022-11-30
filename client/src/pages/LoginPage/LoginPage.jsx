@@ -18,7 +18,6 @@ function LoginPage() {
   const handleChange = (e) => {
     setFormState({
       ...formState,
-      // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value,
     });
   };
@@ -27,11 +26,9 @@ function LoginPage() {
     e.preventDefault();
     try {
       await userService.login(formState);
-      // Let <App> know a user has signed up!
       handleSignupOrLogin();
       navigate("/dashboard");
     } catch (err) {
-      // alert("Invalid Credentials!");
       setMessage(
         "Hmm. Your email and password do not match our records. Check again, please."
       );

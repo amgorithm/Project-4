@@ -28,11 +28,9 @@ function SignupForm({ updateMessage }) {
     e.preventDefault();
     try {
       await userService.signup(state);
-      // Let <App> know a user has signed up!
       handleSignupOrLogin();
       navigate("/dashboard");
     } catch (err) {
-      // Invalid user data (probably duplicate email)
       updateMessage(err.message);
     }
   };

@@ -12,25 +12,24 @@
 
 .footer h2 {
   font-size: 17pt;
+  font-weight: normal;
 }
 
+/* Media queries */
 @media only screen and (min-width: 768px) {
   .footer h2 {
     font-size: 19pt;
-    font-weight: normal;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .footer h2 {
     font-size: 19pt;
-    font-weight: normal;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .footer h2 {
     font-size: 19pt;
-    font-weight: normal;
   }
 }

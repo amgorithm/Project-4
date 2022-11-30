@@ -7,6 +7,7 @@
   font-family: "Lato", sans-serif;
   padding-left: 50px;
   padding-right: 50px;
+  margin-bottom: 100px;
 }
 
 .login-title h2 {
@@ -34,7 +35,6 @@
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   padding: 5px 10px;
-  /* text-align: center; */
 }
 .login-action {
   display: flex;
@@ -62,6 +62,7 @@
   width: 280px;
 }
 
+/* Media queries */
 @media only screen and (min-width: 768px) {
   .login-title h2 {
     font-size: 35px;

@@ -7,6 +7,7 @@
   font-family: "Lato", sans-serif;
   padding-left: 50px;
   padding-right: 50px;
+  margin-bottom: 100px;
 }
 
 .update-title h2 {
@@ -63,7 +64,6 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   text-align: center;
-  /* font-family: "Lato", sans-serif; */
 }
 
 .input-box,
@@ -85,6 +85,7 @@
   outline: inherit;
 }
 
+/* Media queries */
 @media only screen and (min-width: 768px) {
   .update-title h2 {
     font-size: 35px;

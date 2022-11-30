@@ -15,7 +15,6 @@
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   padding: 5px 10px;
-  /* text-align: center; */
 }
 
 .signup-action {
@@ -27,7 +26,6 @@
 }
 
 .signup-btn {
-  /* margin-top: 20px; */
   background: none;
   background-color: #509498;
   border: 1px solid #e0e0e0;
@@ -45,6 +43,7 @@
   margin-top: 10px;
 }
 
+/* Media queries */
 @media only screen and (min-width: 768px) {
   .signup-input {
     font-size: 17px;
