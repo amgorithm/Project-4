@@ -205,7 +205,7 @@ class OverallConsumed(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
 #   return Food.objects.filter(user_id=user.id).filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=False))
-        return Food.objects.filter(user_id=user.id).filter(wasted=False).filter(Q(expiry_date__lt=timezone.now()) | Q(expiry_date__gt=timezone.now()))
+        return Food.objects.filter(user_id=user.id).filter(wasted=False).filter(Q(expiry_date__lte=timezone.now()) | Q(expiry_date__gte=timezone.now()))
 
     serializer_class = InventorySerializer
     permission_classes = (IsAuthor | permissions.IsAdminUser,)
@@ -216,7 +216,7 @@ class OverallWasted(generics.ListAPIView):
         user = self.request.user
 # return Food.objects.filter(user_id=user.id).filter(user_id=user.id).filter(Q(expiry_date__lt=timezone.now()) & Q(wasted=True))
         # return Food.objects.filter(user_id=user.id).filter(Q(wasted=True) & Q(expiry_date__lt=timezone.now()) |  Q(expiry_date__gt=timezone.now()))
-        return Food.objects.filter(user_id=user.id).filter(wasted=True).filter(Q(expiry_date__lt=timezone.now()) | Q(expiry_date__gt=timezone.now()))
+        return Food.objects.filter(user_id=user.id).filter(wasted=True).filter(Q(expiry_date__lte=timezone.now()) | Q(expiry_date__gte=timezone.now()))
     serializer_class = InventorySerializer
     permission_classes = (IsAuthor | permissions.IsAdminUser,)
 
