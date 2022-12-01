@@ -47,7 +47,7 @@ function UnactionedExpiredFoodView() {
   const handleSubmit = (e) => {
     e.preventDefault();
     wasteUnactionedUpdate(updateWasteStatus, foodID).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       navigate(`/dashboard`);
     });
   };

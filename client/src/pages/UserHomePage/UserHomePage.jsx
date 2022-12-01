@@ -78,7 +78,7 @@ function Homepage() {
           {red ? (
             <>
               {red.map((food) => (
-                <div className="day-card">
+                <div className="day-card" key={food.id}>
                   <div className="title-tag">
                     <div className="user-food-title">
                       <Link
@@ -96,7 +96,7 @@ function Homepage() {
                   </div>
 
                   <div className="user-food-info">
-                    <p>{food.quantity} piece</p>
+                    <p>{food.quantity} stock</p>
                     <p>-</p>
                     <p>{food.expiry_date}</p>
                   </div>
@@ -111,7 +111,7 @@ function Homepage() {
           {orange ? (
             <>
               {orange.map((food) => (
-                <div className="day-card">
+                <div className="day-card" key={food.id}>
                   <div className="title-tag">
                     <div className="user-food-title">
                       <Link
@@ -129,7 +129,7 @@ function Homepage() {
                   </div>
 
                   <div className="user-food-info">
-                    <p>{food.quantity} piece</p>
+                    <p>{food.quantity} stock</p>
                     <p>-</p>
                     <p>{food.expiry_date}</p>
                   </div>
@@ -144,7 +144,7 @@ function Homepage() {
           {yellow ? (
             <>
               {yellow.map((food) => (
-                <div className="day-card">
+                <div className="day-card" key={food.id}>
                   <div className="title-tag">
                     <div className="user-food-title">
                       <Link
@@ -162,7 +162,7 @@ function Homepage() {
                   </div>
 
                   <div className="user-food-info">
-                    <p>{food.quantity} piece</p>
+                    <p>{food.quantity} stock</p>
                     <p>-</p>
                     <p>{food.expiry_date}</p>
                   </div>
@@ -177,7 +177,7 @@ function Homepage() {
           {green ? (
             <>
               {green.map((food) => (
-                <div className="day-card">
+                <div className="day-card" key={food.id}>
                   <div className="title-tag">
                     <div className="user-food-title">
                       <Link
@@ -195,7 +195,7 @@ function Homepage() {
                   </div>
 
                   <div className="user-food-info">
-                    <p>{food.quantity} piece</p>
+                    <p>{food.quantity} stock</p>
                     <p>-</p>
                     <p>{food.expiry_date}</p>
                   </div>
@@ -227,7 +227,7 @@ function Homepage() {
             </div>
 
             {unactioned.map((food) => (
-              <div className="unactioned-card">
+              <div className="unactioned-card" key={food.id}>
                 <Link
                   to={`/expired-inventory-view/${food.id}/`}
                   key={food.id}

@@ -47,7 +47,6 @@ export const wasteUnactionedDetail = async (foodID) => {
 };
 
 export const wasteUnactionedUpdate = async (expiredItem, foodID) => {
-  console.log("Expired food updated");
   try {
     const token = tokenService.getToken();
     let res = await fetch(
@@ -69,7 +68,6 @@ export const wasteUnactionedUpdate = async (expiredItem, foodID) => {
 };
 
 export const wasteUnactionedDelete = async (expiredItem, foodID) => {
-  console.log("Expired food deleted");
   try {
     const token = tokenService.getToken();
     let res = await fetch(
@@ -196,8 +194,6 @@ export const addAFood = async (food) => {
 };
 
 export const updateFood = async (food, foodID) => {
-  console.log(food, foodID);
-
   try {
     const token = tokenService.getToken();
     let res = await fetch(`/api/v1/inventory-detail/${foodID}/`, {
@@ -215,8 +211,6 @@ export const updateFood = async (food, foodID) => {
 };
 
 export const deleteFood = async (food, foodID) => {
-  console.log("Food was deleted");
-
   try {
     const token = tokenService.getToken();
     let res = await fetch(`/api/v1/inventory-detail/${foodID}/`, {

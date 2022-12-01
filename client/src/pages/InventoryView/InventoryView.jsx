@@ -61,7 +61,7 @@ function InventoryView() {
           <>
             <div className="item-detail">
               <p className="item-bold">{inventoryItem.quantity}</p>
-              <p>Piece</p>
+              <p>Stock</p>
             </div>
             <div className="item-detail">
               <p className="item-bold">{inventoryItem.expiry_date}</p>

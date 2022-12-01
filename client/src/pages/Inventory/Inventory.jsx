@@ -38,7 +38,7 @@ function Inventory() {
           {inventory.map((food) => {
             if (food.category.id === 1) {
               return (
-                <div className="inventory-item-container">
+                <div className="inventory-item-container" key={food.id}>
                   <div className="item-left">
                     <div className="category">
                       <img
@@ -67,7 +67,7 @@ function Inventory() {
               );
             } else if (food.category.id === 2) {
               return (
-                <div className="inventory-item-container">
+                <div className="inventory-item-container" key={food.id}>
                   <div className="item-left">
                     <div className="category">
                       <img
@@ -97,7 +97,7 @@ function Inventory() {
               );
             } else if (food.category.id === 3) {
               return (
-                <div className="inventory-item-container">
+                <div className="inventory-item-container" key={food.id}>
                   <div className="item-left">
                     <div className="category">
                       <img
@@ -127,7 +127,7 @@ function Inventory() {
               );
             } else if (food.category.id === 4) {
               return (
-                <div className="inventory-item-container">
+                <div className="inventory-item-container" key={food.id}>
                   <div className="item-left">
                     <div className="category">
                       <img
@@ -156,7 +156,7 @@ function Inventory() {
               );
             } else if (food.category.id === 5) {
               return (
-                <div className="inventory-item-container">
+                <div className="inventory-item-container" key={food.id}>
                   <div className="item-left">
                     <div className="category">
                       <img
@@ -185,7 +185,7 @@ function Inventory() {
               );
             } else if (food.category.id === 6) {
               return (
-                <div className="inventory-item-container">
+                <div className="inventory-item-container" key={food.id}>
                   <div className="item-left">
                     <div className="category">
                       <img
@@ -213,7 +213,7 @@ function Inventory() {
               );
             } else if (food.category.id === 7) {
               return (
-                <div className="inventory-item-container">
+                <div className="inventory-item-container" key={food.id}>
                   <div className="item-left">
                     <div className="category">
                       <img
@@ -243,7 +243,7 @@ function Inventory() {
               );
             } else if (food.category.id === 8) {
               return (
-                <div className="inventory-item-container">
+                <div className="inventory-item-container" key={food.id}>
                   <div className="item-left">
                     <div className="category">
                       <img
