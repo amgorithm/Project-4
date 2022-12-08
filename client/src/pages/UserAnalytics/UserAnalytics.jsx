@@ -62,7 +62,6 @@ function UserAnalytics() {
     setWastedThisYear(wasted);
   }
 
-  console.log(overallWaste);
   return (
     <div className="analytics">
       <div className="analytics-title">
