@@ -136,8 +136,6 @@ class WasteUnactionedDetail(generics.RetrieveUpdateDestroyAPIView):
         self.perform_update(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
-
     serializer_class = InventorySerializer
     permission_classes = (IsAuthor | permissions.IsAdminUser,)
 
