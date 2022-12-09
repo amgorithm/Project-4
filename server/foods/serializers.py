@@ -53,7 +53,7 @@ class InventorySerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         discarded_user = validated_data.pop("user")
-        print("im here")
+  
         category_data = validated_data.pop("category")
         (category, _) = Category.objects.get_or_create(**category_data)
         user = self.context['request'].user
@@ -64,12 +64,8 @@ class InventorySerializer(serializers.ModelSerializer):
         category_data = validated_data.pop("category")
 
         if category_data.get("name"):
-            print('category name', category_data)
+  
             new_category = Category.objects.get(**category_data)
-            # print('new cat ->', new_category)
-        #     # (new_category, _) = Category.objects.get(category_data.get("name"))
-        #     print('new cat ->', new_category) # category name OrderedDict([('name', 'Dairy')])
-
             food.category = new_category
 
         food.name = validated_data.get("name", food.name)

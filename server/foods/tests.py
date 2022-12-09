@@ -7,8 +7,8 @@ class FoodTests(TestCase):
   @classmethod
   def setUpTestData(cls):
     cls.user = get_user_model().objects.create_user(
-      username="Hana",
-      email="hana@email.com",
+      username="Clementine",
+      email="clementine@email.com",
       password="supersecretpw"
     )
 
@@ -32,12 +32,12 @@ class FoodTests(TestCase):
     self.assertEqual(self.food.name, "Yoghurt")
     self.assertEqual(self.food.category.name, "dairy")
     self.assertEqual(self.food.expiry_date, "2022-11-15")
-    self.assertEqual(self.food.user.username, "Hana")
+    self.assertEqual(self.food.user.username, "Clementine")
 
 
 
   def test_user_model(self):
 
-    self.assertEqual(self.user.username, "Hana")
-    self.assertEqual(self.user.email, "hana@email.com")
+    self.assertEqual(self.user.username, "Clementine")
+    self.assertEqual(self.user.email, "clementine@email.com")
     
