@@ -19,8 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
 
         if password != password_confirmation:
             raise serializers.ValidationError(
-                {'password_confirmation': 'Passwords do not match'})
-       
+                {'password_confirmation': 'Passwords do not match'})       
         try:
             validations.validate_password(password=password)
         except ValidationError as err:
