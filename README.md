@@ -54,7 +54,7 @@ Password: W86&7np5%
 
 ## Planning
 
-When thinking about some of the features I wanted to incorporate, I used Excalidraw for rough outlining. With the appreciation of simplicity in mind, I wanted to create a product that delivers on a central goal of tracking food freshness and food waste. I knew adding more features would diverge from the application’s purpose. Basically, I didn’t want to get to a point where the application was /doing the most/.
+When thinking about some of the features I wanted to incorporate, I used Excalidraw for rough outlining. With the appreciation of simplicity in mind, I wanted to create a product that delivers on a central goal of tracking food freshness and food waste. I knew adding more features would diverge from the application’s purpose. Basically, I didn’t want to get to a point where the application was _doing the most_.
 
 After a fair bit of mulling over the application’s architecture, I decided to divide the application into 7 broad sections:
 
@@ -70,7 +70,11 @@ To help me think about the typical steps a user interested in the application wo
 
 ![Miro User story](./client/src/images/readme/miro-map.png)
 
+User story zoomed in part 1:
+
 ![Miro User story zoomed in part 1](./client/src/images/readme/miro-us-1.png)
+
+User story zoomed in part 2:
 
 ![Miro User story zoomed in part 2](./client/src/images/readme/miro-us-2.png)
 
@@ -80,13 +84,13 @@ The user story map informed the design of the database and its relationships. I 
 
 ![Dbdiagram](./client/src/images/readme/dbdiagram.png)
 
-The application’s CSS was designed on Exalidraw once the logic was complete. As the infographics' colourings informed the Waste Not application’s colour choices, I used coolors.co to pick and arrange the colours. I browsed various blogs that explored font choices and selected the Raleway and Lato Google fonts as the application’s font choices.
+The application’s CSS was designed on Exalidraw once the logic was complete. As the infographics' colourings informed the Waste Not application’s colour choices, I used [coolors.co](https://coolors.co/) to pick and arrange the colours. I browsed various blogs that explored font choices and selected the Raleway and Lato Google fonts as the application’s font choices.
 
 ![Colour planning](./client/src/images/readme/colour-plan-1.png)
 
 ![Colour planning](./client/src/images/readme/colour-plan-2.png)
 
-Infographics and icons were sourced from flaticon.com and freepik.com. The source for each item is listed below:
+Infographics and icons were sourced from [Flaticon](https://www.flaticon.com/) and [Freepik](https://www.freepik.com/). The source for each item is listed below:
 
 Infographics:
 
@@ -158,8 +162,6 @@ I re-ran the test several times with typos to ensure that the first successful t
 
 Knowing that the models were in working order, I then moved on to creating the API. I first installed and enabled necessities such as Django Rest Framework and CORS and also added permissions to restrict certain functionalities.
 
-### Inventory
-
 #### Homepage
 
 #### Homepage: server
@@ -172,7 +174,7 @@ I created three views: a read-only view that returns three randomised food waste
 
 As my food waste facts currently do not currently exceed 9 facts and are unlikely to reach beyond 30, I used the order_by method to return the randomised data. I acknowledge that this is an inefficient method for larger datasets.
 
-#### Homepage: server
+#### Homepage: client
 
 I called on the foodWasteFacts function from the food service file to retrieve the facts and then populate them within the homepage page using the map method.
 
@@ -248,7 +250,7 @@ For the unactioned items that will appear in the dashboard, users will be able t
 
 ![Dashboard unactioned clicked](./client/src/images/readme/dashboard-clicked-unactioned.png)
 
-### Search:
+### Search
 
 #### Search: server
 
