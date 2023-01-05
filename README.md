@@ -49,6 +49,7 @@ To run the project following download, enter the following commands in your term
 To use the application without having to signup, use this test user:
 
 Email: clementine@email.com
+
 Password: W86&7np5%
 
 ## Planning
@@ -231,7 +232,7 @@ The next section to tackle was the user’s dashboard. The dashboard displays fo
 
 As you can see, the un-actioned API also requires a detail view to enable users to either update the expired food’s waste status or delete the food item.
 
-[!Dashboard waste views](./client/src/images/readme/dashboard-waste-views.png)
+![Dashboard waste views](./client/src/images/readme/dashboard-waste-views.png)
 
 #### Dashboard: client
 
