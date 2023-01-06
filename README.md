@@ -20,7 +20,7 @@ The project's technical requirements were as follows:
 6. Have a visually impressive design to kick your portfolio up a notch and have something to wow future clients & employers. ALLOW time for this
 7. Be deployed online so it’s publicly accessible
 
-##### Technologies used
+### Technologies used
 
 - HTML5
 - CSS
