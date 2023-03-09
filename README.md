@@ -37,20 +37,7 @@ The project's technical requirements were as follows:
 
 ## Deployment link
 
-Coming soon!
-
-## Getting Started/Code Installation
-
-To run the project following download, enter the following commands in your terminal:
-
-1. In the client folder run `npm install` and then `npm start`
-2. In the server folder run `poetry shell` and then `python manage.py runserver`
-
-To use the application without having to signup, use this test user:
-
-Email: clementine@email.com
-
-Password: W86&7np5%
+The Waste Not application can be access here: https://waste-not-app.netlify.app/
 
 ## Planning
 
