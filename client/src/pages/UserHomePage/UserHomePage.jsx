@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   orangeExpiryDate,
   yellowExpiryDate,
@@ -7,12 +7,12 @@ import {
   redExpiryDate,
   wasteUnactionedList,
 } from "../../utils/foodService";
-import useUser from "../../hooks/useUser";
+// import useUser from "../../hooks/useUser";
 import "./UserHomePage.css";
 
 function Homepage() {
-  const { user } = useUser();
-  let navigate = useNavigate();
+  // const { user } = useUser();
+  // let navigate = useNavigate();
 
   const [unactioned, setUnactioned] = useState([]);
   const [orange, setOrange] = useState([]);

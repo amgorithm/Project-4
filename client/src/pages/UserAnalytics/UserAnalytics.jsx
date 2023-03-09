@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   overallConsumed,
   overallWasted,
@@ -12,8 +12,8 @@ import useUser from "../../hooks/useUser";
 import "./UserAnalytics.css";
 
 function UserAnalytics() {
-  const { user, handleLogout } = useUser();
-  let navigate = useNavigate();
+  const { handleLogout } = useUser();
+  // let navigate = useNavigate();
 
   const [overallConsume, setOverallConsume] = useState([]);
   const [overallWaste, setOverallWaste] = useState([]);

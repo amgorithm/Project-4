@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { inventorySearch } from "../../utils/foodService";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useDebounce from "../../hooks/useDebounce";
-import useUser from "../../hooks/useUser";
+// import useUser from "../../hooks/useUser";
 import "./InventorySearch.css";
 
 function InventorySearch() {
-  const { user } = useUser();
-  let navigate = useNavigate();
+  // const { user } = useUser();
+  // let navigate = useNavigate();
   const [inventoryList, setInventoryList] = useState([]);
   const [query, setQuery] = useState("");
   const debounce = useDebounce(query, 500);

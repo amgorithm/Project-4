@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { updateFood, getFood } from "../../utils/foodService";
 import { useNavigate, useParams } from "react-router-dom";
 import "./InventoryEdit.css";
-import useUser from "../../hooks/useUser";
+// import useUser from "../../hooks/useUser";
 
 function InventoryEdit() {
-  const { user } = useUser();
+  // const { user } = useUser();
   let navigate = useNavigate();
   const { foodID } = useParams();
 

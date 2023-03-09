@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { addAFood } from "../../utils/foodService";
 import { useNavigate } from "react-router-dom";
 import "./AddFood.css";
-import useUser from "../../hooks/useUser";
+// import useUser from "../../hooks/useUser";
 
 function AddFood() {
-  const { user } = useUser();
+  // const { user } = useUser();
   let navigate = useNavigate();
 
   const [food, setFood] = useState({

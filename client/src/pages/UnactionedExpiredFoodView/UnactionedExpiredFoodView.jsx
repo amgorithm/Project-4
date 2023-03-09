@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   wasteUnactionedDetail,
   wasteUnactionedDelete,
   wasteUnactionedUpdate,
 } from "../../utils/foodService";
-import useUser from "../../hooks/useUser";
+// import useUser from "../../hooks/useUser";
 import "./UnactionedExpiredFoodView.css";
 
 function UnactionedExpiredFoodView() {
-  const { user } = useUser();
+  // const { user } = useUser();
   const { foodID } = useParams();
   let navigate = useNavigate();
 
