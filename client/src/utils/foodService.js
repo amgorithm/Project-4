@@ -1,9 +1,10 @@
 import tokenService from "./tokenService.js";
+import { BACKEND_URL } from "./constants.js";
 
 // Main homepage food waste
 export const foodWasteFacts = async () => {
   try {
-    let res = await fetch("/api/v1/food-waste-facts/", {
+    let res = await fetch(`${BACKEND_URL}/api/v1/food-waste-facts/`, {
       method: "GET",
     });
     return res.json();
@@ -16,12 +17,15 @@ export const foodWasteFacts = async () => {
 export const wasteUnactionedList = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch("/api/v1/inventory/waste-unactioned-list/", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    let res = await fetch(
+      `${BACKEND_URL}/api/v1/inventory/waste-unactioned-list/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     return res.json();
   } catch (error) {
     console.log(error);
@@ -32,7 +36,7 @@ export const wasteUnactionedDetail = async (foodID) => {
   try {
     const token = tokenService.getToken();
     let res = await fetch(
-      `/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
+      `${BACKEND_URL}/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
       {
         method: "GET",
         headers: {
@@ -50,7 +54,7 @@ export const wasteUnactionedUpdate = async (expiredItem, foodID) => {
   try {
     const token = tokenService.getToken();
     let res = await fetch(
-      `/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
+      `${BACKEND_URL}/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
       {
         method: "PUT",
         headers: {
@@ -71,7 +75,7 @@ export const wasteUnactionedDelete = async (expiredItem, foodID) => {
   try {
     const token = tokenService.getToken();
     let res = await fetch(
-      `/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
+      `${BACKEND_URL}/api/v1/inventory/waste-unactioned-detail/${foodID}/`,
       {
         method: "DELETE",
         headers: {
@@ -90,12 +94,15 @@ export const wasteUnactionedDelete = async (expiredItem, foodID) => {
 export const redExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch("/api/v1/inventory/expiring-this-week/red/", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    let res = await fetch(
+      `${BACKEND_URL}/api/v1/inventory/expiring-this-week/red/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     return res.json();
   } catch (error) {
     console.log(error);
@@ -105,12 +112,15 @@ export const redExpiryDate = async () => {
 export const orangeExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch("/api/v1/inventory/expiring-this-week/orange/", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    let res = await fetch(
+      `${BACKEND_URL}/api/v1/inventory/expiring-this-week/orange/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     return res.json();
   } catch (error) {
     console.log(error);
@@ -120,12 +130,15 @@ export const orangeExpiryDate = async () => {
 export const yellowExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch("/api/v1/inventory/expiring-this-week/yellow/", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    let res = await fetch(
+      `${BACKEND_URL}/api/v1/inventory/expiring-this-week/yellow/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     return res.json();
   } catch (error) {
     console.log(error);
@@ -135,12 +148,15 @@ export const yellowExpiryDate = async () => {
 export const greenExpiryDate = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch("/api/v1/inventory/expiring-this-week/green/", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    let res = await fetch(
+      `${BACKEND_URL}/api/v1/inventory/expiring-this-week/green/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     return res.json();
   } catch (error) {}
 };
@@ -149,7 +165,7 @@ export const greenExpiryDate = async () => {
 export const getFoods = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch("/api/v1/inventory/", {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory/`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -164,7 +180,7 @@ export const getFoods = async () => {
 export const getFood = async (foodID) => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory-detail/${foodID}/`, {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory-detail/${foodID}/`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -179,7 +195,7 @@ export const getFood = async (foodID) => {
 export const addAFood = async (food) => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch("/api/v1/inventory/", {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory/`, {
       method: "POST",
       headers: {
         Authorization: "Bearer " + token,
@@ -196,7 +212,7 @@ export const addAFood = async (food) => {
 export const updateFood = async (food, foodID) => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory-detail/${foodID}/`, {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory-detail/${foodID}/`, {
       method: "PUT",
       headers: {
         Authorization: "Bearer " + token,
@@ -213,7 +229,7 @@ export const updateFood = async (food, foodID) => {
 export const deleteFood = async (food, foodID) => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory-detail/${foodID}/`, {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory-detail/${foodID}/`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + token,
@@ -230,7 +246,7 @@ export const deleteFood = async (food, foodID) => {
 export const overallConsumed = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory/overall-consumed/`, {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory/overall-consumed/`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -245,7 +261,7 @@ export const overallConsumed = async () => {
 export const overallWasted = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory/overall-wasted/`, {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory/overall-wasted/`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -260,12 +276,15 @@ export const overallWasted = async () => {
 export const threeMonthConsumed = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory/last-three-months/consumed/`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    let res = await fetch(
+      `${BACKEND_URL}/api/v1/inventory/last-three-months/consumed/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     return res.json();
   } catch (error) {
     console.log(error);
@@ -275,12 +294,15 @@ export const threeMonthConsumed = async () => {
 export const threeMonthWasted = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory/last-three-months/wasted/`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    let res = await fetch(
+      `${BACKEND_URL}/api/v1/inventory/last-three-months/wasted/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     return res.json();
   } catch (error) {
     console.log(error);
@@ -290,12 +312,15 @@ export const threeMonthWasted = async () => {
 export const thisYearConsumed = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory/this-year/consumed/`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    let res = await fetch(
+      `${BACKEND_URL}/api/v1/inventory/this-year/consumed/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     return res.json();
   } catch (error) {
     console.log(error);
@@ -305,7 +330,7 @@ export const thisYearConsumed = async () => {
 export const thisYearWasted = async () => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory/this-year/wasted/`, {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory/this-year/wasted/`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,
@@ -321,7 +346,7 @@ export const thisYearWasted = async () => {
 export const inventorySearch = async (query) => {
   try {
     const token = tokenService.getToken();
-    let res = await fetch(`/api/v1/inventory-search/${query}/`, {
+    let res = await fetch(`${BACKEND_URL}/api/v1/inventory-search/${query}/`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + token,

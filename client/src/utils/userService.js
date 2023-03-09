@@ -1,7 +1,8 @@
 import tokenService from "./tokenService";
+import { BACKEND_URL } from "./constants";
 
 function signup(user) {
-  return fetch("/api/v1/signup/", {
+  return fetch(`${BACKEND_URL}/api/v1/signup/`, {
     method: "POST",
     headers: new Headers({ "Content-Type": "application/json" }),
     body: JSON.stringify(user),
@@ -25,7 +26,7 @@ function logout() {
 }
 
 function login(creds) {
-  return fetch("/api/v1/login/", {
+  return fetch(`${BACKEND_URL}/api/v1/login/`, {
     method: "POST",
     headers: new Headers({ "Content-Type": "application/json" }),
     body: JSON.stringify(creds),
