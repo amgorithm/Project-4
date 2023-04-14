@@ -42,8 +42,8 @@ function Inventory() {
                   <div className="item-left">
                     <div className="category">
                       <img
-                        src={require("../../images/grains.png")}
-                        alt="grains"
+                        src={require("../../images/fruits-and-vegetables.png")}
+                        alt="fruits and vegetables"
                         className="category-icon"
                       />
                     </div>
@@ -71,8 +71,8 @@ function Inventory() {
                   <div className="item-left">
                     <div className="category">
                       <img
-                        src={require("../../images/meat-and-fish.png")}
-                        alt="meat and fish"
+                        src={require("../../images/grains.png")}
+                        alt="grains"
                         className="category-icon"
                       />
                     </div>
@@ -101,8 +101,8 @@ function Inventory() {
                   <div className="item-left">
                     <div className="category">
                       <img
-                        src={require("../../images/fruits-and-vegetables.png")}
-                        alt="fruits and vegetables"
+                        src={require("../../images/frozen-food.png")}
+                        alt="frozen food"
                         className="category-icon"
                       />
                     </div>
@@ -131,8 +131,8 @@ function Inventory() {
                   <div className="item-left">
                     <div className="category">
                       <img
-                        src={require("../../images/dairy.png")}
-                        alt="dairy"
+                        src={require("../../images/meat-and-fish.png")}
+                        alt="meat and fish"
                         className="category-icon"
                       />
                     </div>
@@ -160,8 +160,8 @@ function Inventory() {
                   <div className="item-left">
                     <div className="category">
                       <img
-                        src={require("../../images/snacks.png")}
-                        alt="snacks"
+                        src={require("../../images/dairy.png")}
+                        alt="dairy"
                         className="category-icon"
                       />
                     </div>
@@ -189,8 +189,8 @@ function Inventory() {
                   <div className="item-left">
                     <div className="category">
                       <img
-                        src={require("../../images/frozen-food.png")}
-                        alt="frozen food"
+                        src={require("../../images/condiments-and-salad-dressings.png")}
+                        alt="condiments and salad dressings"
                         className="category-icon"
                       />
                     </div>
@@ -217,8 +217,8 @@ function Inventory() {
                   <div className="item-left">
                     <div className="category">
                       <img
-                        src={require("../../images/condiments-and-salad-dressings.png")}
-                        alt="condiments and salad dressings"
+                        src={require("../../images/snacks.png")}
+                        alt="snacks"
                         className="category-icon"
                       />
                     </div>
