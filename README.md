@@ -299,6 +299,8 @@ This project has added so many critical pieces to the jigsaw puzzle of programmi
 
 On a hard refresh or when a non-existent inventory item’s URL path is entered, the already signed-in user is prompted to sign in again instead of being redirected to their dashboard. Apart from the homepage, all of the pages are wrapped in protected routes that will check for a signed-in user before granting access. I believe this bug results from the millisecond delay in reading the authentication token saved in local storage when a refresh or URL path is actioned. I aim to further explore this potential cause of the bug. Where unsuccessful in diagnosing the root cause of the bug and its fix, I will seek further assistance from Stack Overflow.
 
+The data that appears when a user switches between pages seems to be unreliable. It sometimes shows up correctly, other times only partially, and occasionally not at all. Despite my attempts to solve the problem by testing the backend in Insomnia and adjusting the settings file and redeploying the application multiple times, the issue remains. Even external advisers are unable to identify the root cause of the problem, which is puzzling. I plan to keep investigating until I can find a solution.
+
 ### Future Improvements
 
 To further enhance the Waste Not application, I’d love to add the following features:
