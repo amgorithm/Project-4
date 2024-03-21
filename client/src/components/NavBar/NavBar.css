@@ -3,8 +3,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: #fcfaf8;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
   height: 60px;
 }
 
@@ -54,6 +54,12 @@
 
 /* Media queries */
 @media only screen and (min-width: 768px) {
+  .NavBar {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+
   .waste-not-title {
     font-size: 15pt;
   }

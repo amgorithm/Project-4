@@ -5,8 +5,8 @@
   align-items: center;
   padding-top: 20px;
   font-family: "Lato", sans-serif;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin-bottom: 100px;
 }
 
@@ -168,6 +168,11 @@
 
 /* Media queries */
 @media only screen and (min-width: 768px) {
+  .user-homepage {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   .user-homepage-title h2 {
     font-size: 35px;
   }
